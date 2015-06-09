@@ -50,10 +50,12 @@
      <Compile Include="Assets\Script\GUIAspectRatioScale.cs" />
      <Compile Include="Assets\Script\HealthBar.cs" />
      <Compile Include="Assets\Script\HealthLine.cs" />
+     <Compile Include="Assets\Script\MainMenu.cs" />
      <Compile Include="Assets\Script\Player1Data.cs" />
      <Compile Include="Assets\Script\Player2Data.cs" />
      <Compile Include="Assets\Script\Spell.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
+     <Compile Include="Assets\UIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
