@@ -55,7 +55,7 @@
      <Compile Include="Assets\Script\Player2Data.cs" />
      <Compile Include="Assets\Script\Spell.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
-     <Compile Include="Assets\UIManagerScript.cs" />
+     <Compile Include="Assets\Script\UIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
