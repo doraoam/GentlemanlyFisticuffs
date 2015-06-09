@@ -9,6 +9,5 @@ C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\Temp\bin\Debug\Unity.S
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\Temp\bin\Debug\Unity.DataContract.dll
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\Temp\bin\Debug\ICSharpCode.NRefactory.dll
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\Temp\bin\Debug\Unity.CecilTools.dll
-C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\obj\Debug\Assembly-CSharp.dll
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\obj\Debug\Assembly-CSharp.pdb

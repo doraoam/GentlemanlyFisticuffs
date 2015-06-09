@@ -3,8 +3,6 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
-    public string levelSelect;
-
     public bool isPaused;
 
     public GameObject pauseMenuCanvas;
@@ -36,7 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LevelSelect()
     {
-        Application.LoadLevel(levelSelect);
+        Application.LoadLevel(2);
     }
 
     public void Quit()
