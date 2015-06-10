@@ -8,7 +8,7 @@ public class UIManagerScript : MonoBehaviour
 
     public void StartGame()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel(3);
     }
 
     public void LevelSelect()

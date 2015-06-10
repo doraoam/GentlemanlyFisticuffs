@@ -12,11 +12,9 @@ public class MainMenu : MonoBehaviour
         startText = startText.GetComponent<Image>();
     }
 
-
-
     public void StartLevel()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel(3);
     }
 
 }
