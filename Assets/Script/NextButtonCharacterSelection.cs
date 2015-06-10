@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class NextButtonCharacterSelection : MonoBehaviour
 {
     public static Sprite playerImage;
+    public static string playerName;
 
     void Awake()
     {

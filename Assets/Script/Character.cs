@@ -6,9 +6,9 @@ public class Character : MonoBehaviour
 {
     public Image characterImage;
     public Sprite characterSprite;
+
     public void Awake()
     {
-   
         characterImage = GetComponent<Image>();
         if(characterImage)
         {
@@ -41,6 +41,4 @@ public class Character : MonoBehaviour
         characterSprite = gameObject.GetComponent<Image>().sprite;
         NextButtonCharacterSelection.playerImage = characterSprite;
     }
-
-   
 }

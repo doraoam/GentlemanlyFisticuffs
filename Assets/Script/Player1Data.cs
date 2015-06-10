@@ -4,64 +4,45 @@ using UnityEngine.UI;
 
 public class Player1Data : MonoBehaviour
 {
-
     public Text player1Name;
 
     public float maxHealth = 100;
-    public float curHealth = 100;
+    public static float curHealth = 100;
 
-    //public Texture2D bgImage;
-    //public Texture2D fgImage;
-
-    //public float healthBarLength;
+    public static string curAction;
 
     // Use this for initialization
-    void Start()
+    public void Awake()
     {
-        player1Name.text = "aaaaa";
-        //healthBarLength = Screen.width / 2;
+        if (NextButtonCharacterSelection.playerImage)
+        {
+            player1Name.text = NextButtonCharacterSelection.playerName;
+        }
+        else
+        {
+            player1Name.text = "batman";
+        }
+        curAction = "nothing";
     }
 
     // Update is called once per frame
     void Update()
     {
-        //AdjustCurrentHealth(0);
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            curAction = "attack";
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            curAction = "defend";
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            curAction = "bluff";
+        }
+        else
+        {
+            curAction = "nothing";
+        }
     }
-
-    //void OnGui()
-    //{
-    //    GUI.BeginGroup(new Rect(0, 0, healthBarLength, 32));
-
-    //    GUI.Box(new Rect(0, 0, healthBarLength, 32), bgImage);
-
-    //    GUI.BeginGroup(new Rect(0, 0, curHealth / maxHealth * healthBarLength,32));
-
-    //    GUI.Box(new Rect(0, 0, healthBarLength, 32), fgImage);
-
-    //    GUI.EndGroup();
-
-    //    GUI.EndGroup();
-    //}
-
-    //public void AdjustCurrentHealth(int adj)
-    //{
-    //    curHealth += adj;
-
-    //    if (curHealth < 0)
-    //    {
-    //        curHealth = 0;
-    //    }
-
-    //    if (curHealth > maxHealth)
-    //    {
-    //        curHealth = maxHealth;
-    //    }
-
-    //    if (maxHealth < 1)
-    //    {
-    //        maxHealth = 1;
-    //    }
-
-    //    healthBarLength = (Screen.width / 2) * (curHealth / (float)maxHealth);
-    //}
 }

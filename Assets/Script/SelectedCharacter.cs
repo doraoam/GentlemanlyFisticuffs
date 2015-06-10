@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class SelectedCharacter : MonoBehaviour 
 {
     public Sprite playerSprite;
+    public Text playerText;
  
     void Awake()
     {
@@ -19,7 +20,6 @@ public class SelectedCharacter : MonoBehaviour
             playerSprite = Resources.Load<Sprite>("Batman-SUMPC");
             Image Image1 = transform.Find("Image 1").GetComponent<Image>();
             Image1.sprite = playerSprite;
-            //Debug.LogError("no instance");
         }
     }
 
