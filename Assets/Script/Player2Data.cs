@@ -31,7 +31,7 @@ public class Player2Data : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Player1Data.curAction != "nothing")
+        if (Player1Data.curAction != "nothing" && Player1Data.curAction != "Death")
         {
             float randValue = Random.value;
             if (randValue < .45f)
@@ -73,5 +73,7 @@ public class Player2Data : MonoBehaviour
     {
         isDead = true;
         curAction = "Death";
+
+        GameOver.isOver = true;
     }
 }

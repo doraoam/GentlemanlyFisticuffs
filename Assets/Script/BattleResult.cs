@@ -52,9 +52,6 @@ public class BattleResult : MonoBehaviour
             {
                 resultText.text = "Nothing happen.";
             }
-
-            Debug.Log("Player1: " + Player1Data.curAction);
-            Debug.Log("Player2: " + Player2Data.curAction);
         }
     }
 }

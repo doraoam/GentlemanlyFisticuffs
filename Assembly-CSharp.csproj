@@ -61,6 +61,7 @@
      <Compile Include="Assets\Script\PauseMenu.cs" />
      <Compile Include="Assets\Script\Player1Data.cs" />
      <Compile Include="Assets\Script\Player2Data.cs" />
+     <Compile Include="Assets\Script\ReplayButton.cs" />
      <Compile Include="Assets\Script\SelectedCharacter.cs" />
      <Compile Include="Assets\Script\Spell.cs" />
      <Compile Include="Assets\Script\Timer.cs" />

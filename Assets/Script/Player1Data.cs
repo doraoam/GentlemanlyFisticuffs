@@ -78,5 +78,7 @@ public class Player1Data : MonoBehaviour
     {
         isDead = true;
         curAction = "Death";
+
+        GameOver.isOver = true;
     }
 }

@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Timer.timer = 60;
+        Timer.timer = 25;
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
-            timerText.text = timer.ToString("F0");     
+            timerText.text = timer.ToString("F0");
         }
         else
         {
