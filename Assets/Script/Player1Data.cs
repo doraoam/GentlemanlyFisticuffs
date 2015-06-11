@@ -7,9 +7,13 @@ public class Player1Data : MonoBehaviour
     public Text player1Name;
 
     public float maxHealth = 100;
-    public static float curHealth = 100;
+    public float curHealth;
+
+    public Slider healthSlider;
 
     public static string curAction;
+
+    bool isDead;
 
     // Use this for initialization
     public void Awake()
@@ -23,6 +27,10 @@ public class Player1Data : MonoBehaviour
             player1Name.text = "batman";
         }
         curAction = "nothing";
+
+        curHealth = maxHealth;
+
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -44,5 +52,22 @@ public class Player1Data : MonoBehaviour
         {
             curAction = "nothing";
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        curHealth -= amount;
+        Debug.Log(curHealth);
+        healthSlider.value = curHealth;
+
+        if (curHealth <= 0 && !isDead)
+        {
+            Death();
+        }
+    }
+
+    public void Death()
+    {
+        isDead = true;
     }
 }

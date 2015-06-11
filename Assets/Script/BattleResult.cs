@@ -6,10 +6,22 @@ public class BattleResult : MonoBehaviour
 {
     public Text resultText;
 
+    GameObject player1;
+    GameObject player2;
+
+    Player1Data player1Data;
+    Player2Data player2Data;
+
     // Use this for initialization
     void Start()
     {
         resultText.text = "result";
+
+        player1 = GameObject.FindGameObjectWithTag("Player1Data");
+        player2 = GameObject.FindGameObjectWithTag("Player2Data");
+
+        player1Data = player1.GetComponent<Player1Data>();
+        player2Data = player2.GetComponent<Player2Data>();
     }
 
     // Update is called once per frame
@@ -19,18 +31,21 @@ public class BattleResult : MonoBehaviour
         {
             if (Player1Data.curAction == "attack" && Player2Data.curAction == "bluff")
             {
-                Player2Data.curHealth -= 5;
+                player2Data.TakeDamage(5);
+                
                 resultText.text = "Player 1 get point!";
             }
             else if (Player2Data.curAction == "attack" && Player1Data.curAction == "bluff")
             {
-                Player1Data.curHealth -= 5;
+                player1Data.TakeDamage(5);
+                
                 resultText.text = "Player 2 get point!";
             }
             else if(Player1Data.curAction == "attack" && Player2Data.curAction == "attack")
             {
-                Player1Data.curHealth -= 5;
-                Player2Data.curHealth -= 5;
+                player1Data.TakeDamage(5);
+                player2Data.TakeDamage(5);
+                
                 resultText.text = "Both get hurt";
             }
             else

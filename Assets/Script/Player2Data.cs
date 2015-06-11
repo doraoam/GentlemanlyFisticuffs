@@ -7,14 +7,22 @@ public class Player2Data : MonoBehaviour
     public Text player2Name;
 
     public float maxHealth = 100;
-    public static float curHealth = 100;
+    public float curHealth;
 
-    public static string curAction; 
+    public Slider healthSlider;
+
+    public static string curAction;
+
+    bool isDead;
 
     // Use this for initialization
     void Start()
     {
         player2Name.text = "Enemy";
+
+        curHealth = maxHealth;
+
+        isDead = false;
     }
 
     // Update is called once per frame
@@ -36,5 +44,22 @@ public class Player2Data : MonoBehaviour
                 curAction = "bluff";
             }
         }
+    }
+
+    public void TakeDamage(int amount)
+    {
+        curHealth -= amount;
+
+        healthSlider.value = curHealth;
+
+        if (curHealth <= 0 && !isDead)
+        {
+            Death();
+        }
+    }
+
+    public void Death()
+    {
+        isDead = true;
     }
 }

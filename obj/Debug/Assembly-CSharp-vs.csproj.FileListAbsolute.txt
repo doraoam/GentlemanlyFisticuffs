@@ -11,3 +11,4 @@ C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\Temp\bin\Debug\ICSharp
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\obj\Debug\Assembly-CSharp.dll
 C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\obj\Debug\Assembly-CSharp.pdb
+C:\Users\LBI15XSupraveeN\Documents\Gentlemanly Fisticuffs\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
