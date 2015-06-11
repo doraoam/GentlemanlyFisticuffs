@@ -7,12 +7,12 @@ public class Timer : MonoBehaviour
 
     public Text timerText;
 
-    public static float timer;
+    public float timer = 25;
 
     // Use this for initialization
     void Start()
     {
-        Timer.timer = 25;
+
     }
 
     // Update is called once per frame
@@ -25,12 +25,11 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            GameOver.isOver = true;
+            timerText.color = Color.red;
+            timerText.color = new Color(0.0f, 0.0f, 1.0f, 0.0f);
+            timerText.text = "Game Over";
 
-            //timer = 0;
-            //timerText.color = Color.red;
-            //timerText.color = new Color(0.0f, 0.0f, 1.0f, 0.0f);
-            //timerText.text = "Game Over";
+            GameOver.isOver = true;
         }
     }
 }

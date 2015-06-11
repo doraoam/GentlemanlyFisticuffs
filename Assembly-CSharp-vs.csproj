@@ -50,6 +50,7 @@
      <Compile Include="Assets\Script\CastingBar.cs" />
      <Compile Include="Assets\Script\Character.cs" />
      <Compile Include="Assets\Script\CharacterName.cs" />
+     <Compile Include="Assets\Script\ExitButton.cs" />
      <Compile Include="Assets\Script\GUIAspectRatioScale.cs" />
      <Compile Include="Assets\Script\GameOver.cs" />
      <Compile Include="Assets\Script\HealthBar.cs" />

@@ -14,7 +14,7 @@ public class Player1Data : MonoBehaviour
 
     public static string curAction;
 
-    bool isDead;
+    public static bool isDead;
 
     // Use this for initialization
     public void Awake()
@@ -52,7 +52,7 @@ public class Player1Data : MonoBehaviour
         {
             curAction = "bluff";
             showAction.text = "Bluff";
-        }else if(Player2Data.curAction == "Death"){
+        }else if(Player2Data.curAction == "Death" && Player2Data.isDead){
             curAction = "nothing";
             showAction.text = "Winner!";
         }

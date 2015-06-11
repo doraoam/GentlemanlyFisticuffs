@@ -20,21 +20,20 @@ public class GameOver : MonoBehaviour {
     {
         if (isOver == true)
         {
-            Debug.Log("OK");
-
             gameOverCanvas.SetActive(true);
 
-            if (Player1Data.curAction == "Death")
+            if (Player1Data.curAction == "Death" || Player1Data.isDead)
             {
                 resultText.text = "Player 2 win!!";
             }
-            else if (Player2Data.curAction == "Death")
+            else if (Player2Data.curAction == "Death" || Player2Data.isDead)
             {
                 resultText.text = "Player 1 win!!";
             }
-            else if (Timer.timer <= 0)
+            else
             {
-                resultText.text = "Time out!! " + "Programmer win!!!";
+                resultText.text = "Time out!!";
+                  //+ " " + "Programmer win!!!";
             }
 
             Time.timeScale = 0;
@@ -42,7 +41,15 @@ public class GameOver : MonoBehaviour {
         else
         {
             gameOverCanvas.SetActive(false);
-            Time.timeScale = 1f;
+
+            if (PauseMenu.isPaused != true)
+            {
+                Time.timeScale = 1f;
+            }
+            else
+            {
+                Time.timeScale = 0;
+            }
         }
     }
 }

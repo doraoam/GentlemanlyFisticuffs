@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PauseMenu : MonoBehaviour
 {
-    public bool isPaused;
+    public static bool isPaused;
 
     public GameObject pauseMenuCanvas;
 
@@ -37,8 +37,13 @@ public class PauseMenu : MonoBehaviour
         Application.LoadLevel(2);
     }
 
-    public void Quit()
+    public void Home()
     {
         Application.LoadLevel(0);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
