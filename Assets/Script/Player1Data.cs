@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player1Data : MonoBehaviour
 {
     public Text player1Name;
+    public Text showAction;
 
     public float maxHealth = 100;
     public float curHealth;
@@ -27,6 +28,7 @@ public class Player1Data : MonoBehaviour
             player1Name.text = "batman";
         }
         curAction = "nothing";
+        showAction.text = "Nothing";
 
         curHealth = maxHealth;
 
@@ -39,14 +41,20 @@ public class Player1Data : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             curAction = "attack";
+            showAction.text = "Attack";
         }
         else if (Input.GetKeyDown(KeyCode.X))
         {
             curAction = "defend";
+            showAction.text = "Defend";
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
             curAction = "bluff";
+            showAction.text = "Bluff";
+        }else if(Player2Data.curAction == "Death"){
+            curAction = "nothing";
+            showAction.text = "Winner!";
         }
         else
         {
@@ -57,7 +65,7 @@ public class Player1Data : MonoBehaviour
     public void TakeDamage(int amount)
     {
         curHealth -= amount;
-        Debug.Log(curHealth);
+
         healthSlider.value = curHealth;
 
         if (curHealth <= 0 && !isDead)
@@ -69,5 +77,6 @@ public class Player1Data : MonoBehaviour
     public void Death()
     {
         isDead = true;
+        curAction = "Death";
     }
 }

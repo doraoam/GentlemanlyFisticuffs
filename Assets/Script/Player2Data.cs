@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player2Data : MonoBehaviour
 {
     public Text player2Name;
+    public Text showAction;
 
     public float maxHealth = 100;
     public float curHealth;
@@ -20,6 +21,8 @@ public class Player2Data : MonoBehaviour
     {
         player2Name.text = "Enemy";
 
+        showAction.text = "Nothing";
+
         curHealth = maxHealth;
 
         isDead = false;
@@ -34,15 +37,23 @@ public class Player2Data : MonoBehaviour
             if (randValue < .45f)
             {
                 curAction = "attack";
+                showAction.text = "Attack";
             }
             else if (randValue >= .45f && randValue < .9f)
             {
                 curAction = "defend";
+                showAction.text = "Defend";
             }
             else
             {
                 curAction = "bluff";
+                showAction.text = "Bluff";
             }
+        }
+        else if (Player1Data.curAction == "Death")
+        {
+            curAction = "nothing";
+            showAction.text = "Winner!";
         }
     }
 
@@ -61,5 +72,6 @@ public class Player2Data : MonoBehaviour
     public void Death()
     {
         isDead = true;
+        curAction = "Death";
     }
 }
