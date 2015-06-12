@@ -1,0 +1,11 @@
+# directories
+
+Fisticuffs_Data/
+Library/
+obj/
+Temp/
+
+
+# files
+
+Fisticuffs.exe
