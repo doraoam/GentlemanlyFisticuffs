@@ -6,6 +6,6 @@ public class HomeButton : MonoBehaviour
 
     public void Home()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel("Mainmenu");
     }
 }

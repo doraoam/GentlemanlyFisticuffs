@@ -34,12 +34,12 @@ public class PauseMenu : MonoBehaviour
 
     public void LevelSelect()
     {
-        Application.LoadLevel(2);
+        Application.LoadLevel("StageSelect");
     }
 
     public void Home()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel("Mainmenu");
     }
 
     public void Quit()

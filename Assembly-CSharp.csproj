@@ -50,7 +50,6 @@
      <Compile Include="Assets\Script\CastingBar.cs" />
      <Compile Include="Assets\Script\Character.cs" />
      <Compile Include="Assets\Script\CharacterName.cs" />
-     <Compile Include="Assets\Script\ExitButton.cs" />
      <Compile Include="Assets\Script\GUIAspectRatioScale.cs" />
      <Compile Include="Assets\Script\GameOver.cs" />
      <Compile Include="Assets\Script\HealthBar.cs" />
@@ -66,6 +65,13 @@
      <Compile Include="Assets\Script\SelectedCharacter.cs" />
      <Compile Include="Assets\Script\Spell.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
+     <Compile Include="Assets\Script\TwoPlayer.cs" />
+     <Compile Include="Assets\Script\TwoPlayerChooseCharacter.cs" />
+     <Compile Include="Assets\Script\TwoPlayerNextButtonCharacterSelection.cs" />
+     <Compile Include="Assets\Script\TwoPlayerRandomCharacterSelectionButton.cs" />
+     <Compile Include="Assets\Script\TwoPlayerSelect.cs" />
+     <Compile Include="Assets\Script\TwoPlayerSelectCharacter.cs" />
+     <Compile Include="Assets\Script\TwoPlayerStageCharacter.cs" />
      <Compile Include="Assets\Script\UIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UIManagerScript : MonoBehaviour
 {
     public string startLevel;
-    public string levelSelect;
 
     public void StartGame()
     {
-        Application.LoadLevel(3);
+        Application.LoadLevel("CharacterSelection");
     }
 
-    public void LevelSelect()
+    public void StartMulti()
     {
-        Application.LoadLevel(levelSelect);
+        Application.LoadLevel("Multiplayer");
     }
 
     public void QuitGame()

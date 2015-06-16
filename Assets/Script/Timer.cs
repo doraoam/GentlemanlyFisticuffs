@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
 
     public Text timerText;
 
-    public float timer = 25;
+    public float timer = 30;
 
     // Use this for initialization
     void Start()

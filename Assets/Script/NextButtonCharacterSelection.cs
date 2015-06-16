@@ -11,10 +11,9 @@ public class NextButtonCharacterSelection : MonoBehaviour
 
     }
 
-
     public void Next()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel("test");
 
         GameOver.isOver = false;
     }

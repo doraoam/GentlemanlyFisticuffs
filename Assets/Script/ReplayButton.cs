@@ -6,6 +6,13 @@ public class ReplayButton : MonoBehaviour
 
     public void rePlay()
     {
-        Application.LoadLevel(1);
+        if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
+        {
+            Application.LoadLevel("test");
+        }
+        else
+        {
+            Application.LoadLevel("TwoPlayerStage");
+        }
     }
 }

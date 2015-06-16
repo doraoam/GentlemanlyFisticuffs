@@ -22,6 +22,8 @@ public class Player1Data : MonoBehaviour
         if (NextButtonCharacterSelection.playerImage)
         {
             player1Name.text = NextButtonCharacterSelection.playerName;
+        }else if(TwoPlayerNextButtonCharacterSelection.isTwoPlayer){
+            player1Name.text = TwoPlayerNextButtonCharacterSelection.player1Name;
         }
         else
         {
@@ -38,17 +40,17 @@ public class Player1Data : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.A))
         {
             curAction = "attack";
             showAction.text = "Attack";
         }
-        else if (Input.GetKeyDown(KeyCode.X))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             curAction = "defend";
             showAction.text = "Defend";
         }
-        else if (Input.GetKeyDown(KeyCode.C))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             curAction = "bluff";
             showAction.text = "Bluff";
