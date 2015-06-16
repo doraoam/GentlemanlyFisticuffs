@@ -50,6 +50,9 @@
      <Compile Include="Assets\Script\CastingBar.cs" />
      <Compile Include="Assets\Script\Character.cs" />
      <Compile Include="Assets\Script\CharacterName.cs" />
+     <Compile Include="Assets\Script\ChooseCharacter.cs" />
+     <Compile Include="Assets\Script\ChooseEnermy.cs" />
+     <Compile Include="Assets\Script\ChoosePlayer.cs" />
      <Compile Include="Assets\Script\GUIAspectRatioScale.cs" />
      <Compile Include="Assets\Script\GameOver.cs" />
      <Compile Include="Assets\Script\HealthBar.cs" />
@@ -61,6 +64,7 @@
      <Compile Include="Assets\Script\PauseMenu.cs" />
      <Compile Include="Assets\Script\Player1Data.cs" />
      <Compile Include="Assets\Script\Player2Data.cs" />
+     <Compile Include="Assets\Script\RandomCharacter.cs" />
      <Compile Include="Assets\Script\ReplayButton.cs" />
      <Compile Include="Assets\Script\SelectedCharacter.cs" />
      <Compile Include="Assets\Script\Spell.cs" />
