@@ -3,16 +3,26 @@ using System.Collections;
 
 public class NetworkManager : MonoBehaviour
 {
-    private const string typeName = "UniqueGameName";
-    private const string gameName = "RoomName";
+    private const string typeName = "Gentlemanly Fisticuffs";
+    private const string gameName = "First room";
 
     private HostData[] hostList;
 
+    private bool isRefreshingHostList = false;
+
+    void Update()
+    {
+        if (isRefreshingHostList && MasterServer.PollHostList().Length > 0)
+        {
+            isRefreshingHostList = false;
+            hostList = MasterServer.PollHostList();
+        }
+    }
+
     private void StartServer()
     {
-        Network.InitializeServer(4, 25000, !Network.HavePublicAddress());
+        Network.InitializeServer(2, 25000, !Network.HavePublicAddress());
         MasterServer.RegisterHost(typeName, gameName);
-        MasterServer.ipAddress = "127.0.0.1";
     }
 
     private void RefreshHostList()

@@ -117,8 +117,6 @@ public class RandomCharacter : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        Debug.Log("Hi!");
-
         Application.LoadLevel("test");
     }
 }

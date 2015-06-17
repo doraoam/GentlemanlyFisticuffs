@@ -6,59 +6,56 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
 {
     public void onClickRandom()
     {
-        if (TwoPlayerNextButtonCharacterSelection.enablePlayer1 != TwoPlayerNextButtonCharacterSelection.enablePlayer2)
+        string player1Name;
+        string player2Name;
+
+        Sprite sprite;
+        Sprite sprite2;
+
+        if (TwoPlayerNextButtonCharacterSelection.player1Image)
         {
-            string player1Name;
-            string player2Name;
 
-            Sprite sprite;
-            Sprite sprite2;
+        }
+        else
+        {
+            Sprite[] images = Resources.LoadAll<Sprite>("DC/");
+            sprite = images[Random.Range(0, images.Length)];
 
-            if (TwoPlayerNextButtonCharacterSelection.player1Image)
-            {
+            Image Image = transform.Find("Player1/playerImage").GetComponent<Image>();
+            Image.sprite = sprite;
+            TwoPlayerNextButtonCharacterSelection.player1Image = sprite;
 
-            }
-            else
-            {
-                Sprite[] images = Resources.LoadAll<Sprite>("DC/");
-                sprite = images[Random.Range(0, images.Length)];
+            player1Name = findName(sprite.name);
 
-                Image Image = transform.Find("Player1/playerImage").GetComponent<Image>();
-                Image.sprite = sprite;
-                TwoPlayerNextButtonCharacterSelection.player1Image = sprite;
-
-                player1Name = findName(sprite.name);
-
-                Text text = transform.Find("Player1/Player1Text").GetComponent<Text>();
-                text.text = player1Name;
-                TwoPlayerNextButtonCharacterSelection.player1Name = player1Name;
-            }
-
-            Sprite[] images2 = Resources.LoadAll<Sprite>("DC/");
-
-            // if create a new Sprite variable here will found unlimit loop.
-            sprite2 = images2[Random.Range(0, images2.Length)];
-
-            Image Image2 = transform.Find("Player2/playerImage").GetComponent<Image>();
-            Image2.sprite = sprite2;
-            TwoPlayerNextButtonCharacterSelection.player2Image = sprite2;
-
-            player2Name = findName(sprite2.name);
-
-            Text text2 = transform.Find("Player2/Player2Text").GetComponent<Text>();
-            text2.text = player2Name;
-            TwoPlayerNextButtonCharacterSelection.player2Name = player2Name;
+            Text text = transform.Find("Player1/Player1Text").GetComponent<Text>();
+            text.text = player1Name;
+            TwoPlayerNextButtonCharacterSelection.player1Name = player1Name;
 
             TwoPlayerNextButtonCharacterSelection.enablePlayer1 = false;
-            TwoPlayerNextButtonCharacterSelection.enablePlayer2 = false;
-
-            if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
-            {
-                TwoPlayerNextButtonCharacterSelection.isTwoPlayer = true;
-            }
-
-            Application.LoadLevel("TwoPlayerStage");
         }
+
+        Sprite[] images2 = Resources.LoadAll<Sprite>("DC/");
+
+        sprite2 = images2[Random.Range(0, images2.Length)];
+
+        Image Image2 = transform.Find("Player2/playerImage").GetComponent<Image>();
+        Image2.sprite = sprite2;
+        TwoPlayerNextButtonCharacterSelection.player2Image = sprite2;
+
+        player2Name = findName(sprite2.name);
+
+        Text text2 = transform.Find("Player2/Player2Text").GetComponent<Text>();
+        text2.text = player2Name;
+        TwoPlayerNextButtonCharacterSelection.player2Name = player2Name;
+
+        TwoPlayerNextButtonCharacterSelection.enablePlayer2 = false;
+
+        if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
+        {
+            TwoPlayerNextButtonCharacterSelection.isTwoPlayer = true;
+        }
+
+        Application.LoadLevel("TwoPlayerStage");
     }
 
     string findName(string name)
