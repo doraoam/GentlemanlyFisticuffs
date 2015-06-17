@@ -26,6 +26,7 @@ public class Player2Data : MonoBehaviour
         else
         {
             player2Name.text = "Enemy";
+            curAction = "nothing";
         }
         
         showAction.text = "Nothing";

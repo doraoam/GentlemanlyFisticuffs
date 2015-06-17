@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/Scence/TwoPlayerStage.unity
   - enabled: 1
     path: Assets/Scence/TwoPlayerCharacterSelection.unity
+  - enabled: 1
+    path: Assets/Scence/Online.unity

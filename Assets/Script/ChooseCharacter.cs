@@ -45,7 +45,9 @@ public class ChooseCharacter : MonoBehaviour
 
         if (NextButtonCharacterSelection.enablePlayer1 == NextButtonCharacterSelection.enablePlayer2)
         {
-            StartCoroutine(nextStage());
+            //StartCoroutine(nextStage());
+
+            Application.LoadLevel("test");
         }
     }
 

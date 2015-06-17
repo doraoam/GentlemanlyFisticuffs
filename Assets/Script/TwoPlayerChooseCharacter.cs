@@ -45,7 +45,14 @@ public class TwoPlayerChooseCharacter : MonoBehaviour
 
         if (TwoPlayerNextButtonCharacterSelection.enablePlayer1 == TwoPlayerNextButtonCharacterSelection.enablePlayer2)
         {
-            StartCoroutine(nextStage());
+            //StartCoroutine(nextStage());
+
+            if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
+            {
+                TwoPlayerNextButtonCharacterSelection.isTwoPlayer = true;
+            }
+
+            Application.LoadLevel("TwoPlayerStage");
         }
     }
 

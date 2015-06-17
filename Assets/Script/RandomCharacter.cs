@@ -30,6 +30,8 @@ public class RandomCharacter : MonoBehaviour
             Text text = transform.Find("Player1/Player1Text").GetComponent<Text>();
             text.text = player1Name;
             NextButtonCharacterSelection.playerName = player1Name;
+
+            NextButtonCharacterSelection.enablePlayer1 = false;
         }
 
         Sprite[] images2 = Resources.LoadAll<Sprite>("DC/");
@@ -46,7 +48,9 @@ public class RandomCharacter : MonoBehaviour
         text2.text = player2Name;
         NextButtonCharacterSelection.player2Name = player2Name;
 
-        StartCoroutine(nextStage());
+        NextButtonCharacterSelection.enablePlayer2 = false;
+
+        Application.LoadLevel("test");
     }
 
     string findName(string name)
@@ -112,6 +116,8 @@ public class RandomCharacter : MonoBehaviour
     IEnumerator nextStage()
     {
         yield return new WaitForSeconds(1);
+
+        Debug.Log("Hi!");
 
         Application.LoadLevel("test");
     }

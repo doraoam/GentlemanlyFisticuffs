@@ -52,7 +52,12 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
             TwoPlayerNextButtonCharacterSelection.enablePlayer1 = false;
             TwoPlayerNextButtonCharacterSelection.enablePlayer2 = false;
 
-            StartCoroutine(nextStage());
+            if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
+            {
+                TwoPlayerNextButtonCharacterSelection.isTwoPlayer = true;
+            }
+
+            Application.LoadLevel("TwoPlayerStage");
         }
     }
 
