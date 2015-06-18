@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameOver : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class GameOver : MonoBehaviour {
     public static bool isOver;
 
     public GameObject gameOverCanvas;
+
+    public GameObject HomeButton;
 
     void Start()
     {
@@ -37,6 +40,8 @@ public class GameOver : MonoBehaviour {
             }
 
             Time.timeScale = 0;
+
+            EventSystem.current.SetSelectedGameObject(HomeButton);
         }
         else
         {

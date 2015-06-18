@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool isPaused;
 
     public GameObject pauseMenuCanvas;
+
+    public GameObject resumeButton;
 
     // Update is called once per frame
     void Update()
@@ -21,9 +24,10 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Pause"))
         {
             isPaused = !isPaused;
+            EventSystem.current.SetSelectedGameObject(resumeButton);
         }
     }
 

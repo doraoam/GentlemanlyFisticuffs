@@ -40,17 +40,17 @@ public class Player1Data : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("Attack"))
         {
             curAction = "attack";
             showAction.text = "Attack";
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("Defend"))
         {
             curAction = "defend";
             showAction.text = "Defend";
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Bluff"))
         {
             curAction = "bluff";
             showAction.text = "Bluff";
