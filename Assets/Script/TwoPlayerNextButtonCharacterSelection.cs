@@ -14,6 +14,9 @@ public class TwoPlayerNextButtonCharacterSelection : MonoBehaviour
     public static bool enablePlayer1;
     public static bool enablePlayer2;
 
+    public static bool player1UseAnimation;
+    public static bool player2UseAnimation;
+
     void Awake()
     {
 

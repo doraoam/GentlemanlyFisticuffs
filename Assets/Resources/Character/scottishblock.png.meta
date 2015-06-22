@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: e7798896d17be1d4993f9ec39463fe4d
-timeCreated: 1434968698
+guid: dbabf8e1deb7775478f35434b160c671
+timeCreated: 1434972698
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: scottishidle_0
-    21300002: scottishidle_1
-    21300004: scottishidle_2
-    21300006: scottishidle_3
-    21300008: scottishidle_4
-    21300010: scottishidle_5
-    21300012: scottishidle_6
-    21300014: scottishidle_7
+    21300000: scottishblock_0
+    21300002: scottishblock_1
+    21300004: scottishblock_2
+    21300006: scottishblock_3
+    21300008: scottishblock_4
+    21300010: scottishblock_5
+    21300012: scottishblock_6
+    21300014: scottishblock_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -57,7 +57,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: scottishidle_0
+    - name: scottishblock_0
       rect:
         serializedVersion: 2
         x: 0
@@ -67,7 +67,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: scottishidle_1
+    - name: scottishblock_1
       rect:
         serializedVersion: 2
         x: 512
@@ -77,7 +77,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: scottishidle_2
+    - name: scottishblock_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -87,7 +87,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: scottishidle_3
+    - name: scottishblock_3
       rect:
         serializedVersion: 2
         x: 0
@@ -97,7 +97,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: scottishidle_4
+    - name: scottishblock_4
       rect:
         serializedVersion: 2
         x: 512
@@ -107,7 +107,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: scottishidle_5
+    - name: scottishblock_5
       rect:
         serializedVersion: 2
         x: 1024
@@ -117,7 +117,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: scottishidle_6
+    - name: scottishblock_6
       rect:
         serializedVersion: 2
         x: 0
@@ -127,7 +127,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: scottishidle_7
+    - name: scottishblock_7
       rect:
         serializedVersion: 2
         x: 512

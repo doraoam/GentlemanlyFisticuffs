@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Player1Data
   - Player2Data
+  - Player1Animator
+  - Player2Animator
   layers:
   - Default
   - TransparentFX

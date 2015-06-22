@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\IsPunching.cs" />
      <Compile Include="Assets\Script\BattleResult.cs" />
-     <Compile Include="Assets\Script\CastingBar.cs" />
      <Compile Include="Assets\Script\Character.cs" />
      <Compile Include="Assets\Script\CharacterName.cs" />
      <Compile Include="Assets\Script\ChooseCharacter.cs" />
@@ -72,7 +71,6 @@
      <Compile Include="Assets\Script\RandomCharacter.cs" />
      <Compile Include="Assets\Script\ReplayButton.cs" />
      <Compile Include="Assets\Script\SelectedCharacter.cs" />
-     <Compile Include="Assets\Script\Spell.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
      <Compile Include="Assets\Script\TwoPlayer.cs" />
      <Compile Include="Assets\Script\TwoPlayerChooseCharacter.cs" />
@@ -82,6 +80,7 @@
      <Compile Include="Assets\Script\TwoPlayerSelectCharacter.cs" />
      <Compile Include="Assets\Script\TwoPlayerStageCharacter.cs" />
      <Compile Include="Assets\Script\UIManagerScript.cs" />
+     <Compile Include="Assets\UIManagerScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

@@ -7,6 +7,8 @@ public class Player2Data : MonoBehaviour
     public Text player2Name;
     public Text showAction;
 
+    public Animator player2Animator;
+
     public float maxHealth = 100;
     public float curHealth;
 
@@ -34,6 +36,11 @@ public class Player2Data : MonoBehaviour
         curHealth = maxHealth;
 
         isDead = false;
+
+        if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+        {
+            player2Animator = GameObject.FindGameObjectWithTag("Player2Animator").GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -48,20 +55,44 @@ public class Player2Data : MonoBehaviour
                 {
                     curAction = "attack";
                     showAction.text = "Attack";
+
+                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                    {
+                        player2Animator.SetBool("Punch", true);
+                        player2Animator.SetBool("Block", false);
+                    }
                 }
                 else if (randValue >= .45f && randValue < .9f)
                 {
+                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                    {
+                        player2Animator.SetBool("Punch", false);
+                        player2Animator.SetBool("Block", true);
+                    }
+
                     curAction = "defend";
                     showAction.text = "Defend";
                 }
                 else
                 {
+                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                    {
+                        player2Animator.SetBool("Punch", false);
+                        player2Animator.SetBool("Block", false);
+                    }
+
                     curAction = "bluff";
                     showAction.text = "Bluff";
                 }
             }
             else if (Player1Data.curAction == "Death" && Player1Data.isDead)
             {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", false);
+                }
+
                 curAction = "nothing";
                 showAction.text = "Winner!";
             }
@@ -72,19 +103,43 @@ public class Player2Data : MonoBehaviour
             {
                 curAction = "attack";
                 showAction.text = "Attack";
+
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", true);
+                    player2Animator.SetBool("Block", false);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
             {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", true);
+                }
+
                 curAction = "defend";
                 showAction.text = "Defend";
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", false);
+                }
+
                 curAction = "bluff";
                 showAction.text = "Bluff";
             }
             else if (Player1Data.curAction == "Death" && Player1Data.isDead)
             {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", false);
+                }
+
                 curAction = "nothing";
                 showAction.text = "Winner!";
             }

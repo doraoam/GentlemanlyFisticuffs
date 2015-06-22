@@ -80,6 +80,7 @@ public class ChoosePlayer : MonoBehaviour
                 player1Sprite = Player1MoveableSprite[0];
 
                 Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+                Player1Animator.enabled = true;
                 Player1Animator.SetBool("Selected",true);
 
                 NextButtonCharacterSelection.player1UseAnimation = true;
