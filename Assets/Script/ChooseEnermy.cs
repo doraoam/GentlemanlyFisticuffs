@@ -7,6 +7,10 @@ public class ChooseEnermy : MonoBehaviour
     public Sprite player2Sprite;
     public Text player2Text;
 
+    public Sprite[] Player2MoveableSprite;
+
+    public Animator Player2Animator;
+    
     void Start()
     {
         player2Sprite = Resources.Load<Sprite>("DC/Batman-SUMPC");
@@ -68,6 +72,17 @@ public class ChooseEnermy : MonoBehaviour
             else if (NextButtonCharacterSelection.player2Name == "Sandman")
             {
                 player2Sprite = Resources.Load<Sprite>("DC/Sandman");
+            }
+            else if (NextButtonCharacterSelection.playerName == "Scottish")
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
+
+                player2Sprite = Player2MoveableSprite[0];
+
+                Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
+                Player2Animator.SetBool("Selected", true);
+
+                NextButtonCharacterSelection.player2UseAnimation = true;
             }
 
             Image Image = transform.Find("Player2/playerImage").GetComponent<Image>();

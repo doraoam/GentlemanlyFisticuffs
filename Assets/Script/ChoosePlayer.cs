@@ -7,6 +7,10 @@ public class ChoosePlayer : MonoBehaviour
     public Sprite player1Sprite;
     public Text player1Text;
 
+    public Sprite[] Player1MoveableSprite;
+
+    public Animator Player1Animator;
+
     void Start()
     {
         player1Sprite = Resources.Load<Sprite>("DC/Joker_DC");
@@ -68,6 +72,17 @@ public class ChoosePlayer : MonoBehaviour
             else if (NextButtonCharacterSelection.playerName == "Sandman")
             {
                 player1Sprite = Resources.Load<Sprite>("DC/Sandman");
+            }
+            else if (NextButtonCharacterSelection.playerName == "Scottish")
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
+
+                player1Sprite = Player1MoveableSprite[0];
+
+                Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+                Player1Animator.SetBool("Selected",true);
+
+                NextButtonCharacterSelection.player1UseAnimation = true;
             }
 
             Image Image = transform.Find("Player1/playerImage").GetComponent<Image>();
