@@ -25,7 +25,7 @@ public class SelectedCharacter : MonoBehaviour
             {
                 playerAnimator = GameObject.Find("Player1/Image 1").GetComponent<Animator>();
                 playerAnimator.enabled = true;
-                playerAnimator.SetBool("Selected", true);
+                //playerAnimator.SetBool("Selected", true);
             }
 
             enermySprite = NextButtonCharacterSelection.player2Image;
@@ -36,7 +36,7 @@ public class SelectedCharacter : MonoBehaviour
             {
                 enermyAnimator = GameObject.Find("Player2/Image2").GetComponent<Animator>();
                 enermyAnimator.enabled = true;
-                enermyAnimator.SetBool("Selected", true);
+                //enermyAnimator.SetBool("Selected", true);
             }
         }
         else

@@ -19,7 +19,7 @@ public class Player2Data : MonoBehaviour
     public static bool isDead;
 
     // Use this for initialization
-    void Start()
+    public void Awake()
     {
         if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer)
         {
@@ -73,7 +73,7 @@ public class Player2Data : MonoBehaviour
                     curAction = "defend";
                     showAction.text = "Defend";
                 }
-                else
+                else if(randValue > .9f)
                 {
                     if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                     {
@@ -83,6 +83,14 @@ public class Player2Data : MonoBehaviour
 
                     curAction = "bluff";
                     showAction.text = "Bluff";
+                }
+                else
+                {
+                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                    {
+                        player2Animator.SetBool("Punch", false);
+                        player2Animator.SetBool("Block", false);
+                    }
                 }
             }
             else if (Player1Data.curAction == "Death" && Player1Data.isDead)
@@ -95,6 +103,14 @@ public class Player2Data : MonoBehaviour
 
                 curAction = "nothing";
                 showAction.text = "Winner!";
+            }
+            else
+            {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", false);
+                }
             }
         }
         else
@@ -146,6 +162,12 @@ public class Player2Data : MonoBehaviour
             else
             {
                 curAction = "nothing";
+
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", false);
+                }
             }
         }
     }

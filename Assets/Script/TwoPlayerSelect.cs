@@ -81,7 +81,7 @@ public class TwoPlayerSelect : MonoBehaviour
 
                 Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
                 Player2Animator.enabled = true;
-                Player2Animator.SetBool("Selected", true);
+                //Player2Animator.SetBool("Selected", true);
 
                 TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
             }

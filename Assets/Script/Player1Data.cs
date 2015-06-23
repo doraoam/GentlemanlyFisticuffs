@@ -6,6 +6,7 @@ public class Player1Data : MonoBehaviour
 {
     public Text player1Name;
     public Text showAction;
+    
 
     public Animator player1Animator;
 
@@ -79,7 +80,8 @@ public class Player1Data : MonoBehaviour
 
             curAction = "bluff";
             showAction.text = "Bluff";
-        }else if(Player2Data.curAction == "Death" && Player2Data.isDead)
+        }
+        else if (Player2Data.curAction == "Death" && Player2Data.isDead)
         {
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
@@ -93,7 +95,13 @@ public class Player1Data : MonoBehaviour
         else
         {
             curAction = "nothing";
-        }
+
+            if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
+            {
+                player1Animator.SetBool("Punch", false);
+                player1Animator.SetBool("Block", false);
+            }
+        }  
     }
 
     public void TakeDamage(int amount)
