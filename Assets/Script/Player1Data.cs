@@ -57,6 +57,7 @@ public class Player1Data : MonoBehaviour
             {
                 player1Animator.SetBool("Punch", true);
                 player1Animator.SetBool("Block", false);
+                player1Animator.speed = 0.65f;
             }
         }
         else if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("Defend"))
@@ -65,6 +66,7 @@ public class Player1Data : MonoBehaviour
             {
                 player1Animator.SetBool("Punch", false);
                 player1Animator.SetBool("Block", true);
+                player1Animator.speed = 1f;
             }
 
             curAction = "defend";
@@ -76,6 +78,7 @@ public class Player1Data : MonoBehaviour
             {
                 player1Animator.SetBool("Punch", false);
                 player1Animator.SetBool("Block", false);
+                player1Animator.speed = 1f;
             }
 
             curAction = "bluff";
@@ -87,6 +90,7 @@ public class Player1Data : MonoBehaviour
             {
                 player1Animator.SetBool("Punch", false);
                 player1Animator.SetBool("Block", false);
+                player1Animator.speed = 1f;
             }
 
             curAction = "nothing";
@@ -100,6 +104,7 @@ public class Player1Data : MonoBehaviour
             {
                 player1Animator.SetBool("Punch", false);
                 player1Animator.SetBool("Block", false);
+                //player1Animator.speed = 1f;
             }
         }  
     }

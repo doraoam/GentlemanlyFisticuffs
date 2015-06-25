@@ -60,6 +60,7 @@ public class Player2Data : MonoBehaviour
                     {
                         player2Animator.SetBool("Punch", true);
                         player2Animator.SetBool("Block", false);
+                        player2Animator.speed = 0.65f;
                     }
                 }
                 else if (randValue >= .45f && randValue < .9f)
@@ -68,6 +69,7 @@ public class Player2Data : MonoBehaviour
                     {
                         player2Animator.SetBool("Punch", false);
                         player2Animator.SetBool("Block", true);
+                        player2Animator.speed = 1f;
                     }
 
                     curAction = "defend";
@@ -79,6 +81,7 @@ public class Player2Data : MonoBehaviour
                     {
                         player2Animator.SetBool("Punch", false);
                         player2Animator.SetBool("Block", false);
+                        player2Animator.speed = 1f;
                     }
 
                     curAction = "bluff";
@@ -90,6 +93,7 @@ public class Player2Data : MonoBehaviour
                     {
                         player2Animator.SetBool("Punch", false);
                         player2Animator.SetBool("Block", false);
+                        player2Animator.speed = 1f;
                     }
                 }
             }
@@ -99,6 +103,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.speed = 1f;
                 }
 
                 curAction = "nothing";
@@ -110,6 +115,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    //player2Animator.speed = 1f;
                 }
             }
         }
@@ -124,6 +130,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", true);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.speed = 0.65f;
                 }
             }
             else if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -132,6 +139,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", true);
+                    player2Animator.speed = 1f;
                 }
 
                 curAction = "defend";
@@ -143,6 +151,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.speed = 1f;
                 }
 
                 curAction = "bluff";
@@ -154,6 +163,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.speed = 1f;
                 }
 
                 curAction = "nothing";
@@ -167,6 +177,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    //player2Animator.speed = 1f;
                 }
             }
         }
