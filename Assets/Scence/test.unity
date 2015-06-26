@@ -891,7 +891,7 @@ MonoBehaviour:
   player1Animator: {fileID: 0}
   maxHealth: 100
   curHealth: 0
-  healthSlider: {fileID: 0}
+  healthSlider: {fileID: 1979761196}
 --- !u!1 &431151822
 GameObject:
   m_ObjectHideFlags: 0
@@ -3998,7 +3998,7 @@ MonoBehaviour:
   player2Animator: {fileID: 0}
   maxHealth: 100
   curHealth: 0
-  healthSlider: {fileID: 0}
+  healthSlider: {fileID: 1059325549}
 --- !u!1 &1837059146
 GameObject:
   m_ObjectHideFlags: 0
