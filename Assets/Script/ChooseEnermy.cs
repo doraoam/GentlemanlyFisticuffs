@@ -81,7 +81,7 @@ public class ChooseEnermy : MonoBehaviour
 
                 Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
                 Player2Animator.enabled = true;
-                Player2Animator.SetBool("Selected", true);
+                //Player2Animator.SetBool("Selected", true);
 
                 NextButtonCharacterSelection.player2UseAnimation = true;
             }

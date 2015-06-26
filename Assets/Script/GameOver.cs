@@ -39,7 +39,7 @@ public class GameOver : MonoBehaviour {
                   //+ " " + "Programmer win!!!";
             }
 
-            Time.timeScale = 0;
+            Time.timeScale = 1;
 
             EventSystem.current.SetSelectedGameObject(HomeButton);
         }
