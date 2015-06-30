@@ -31,20 +31,20 @@ public class BattleResult : MonoBehaviour
         {
             if (Player1Data.curAction == "attack" && Player2Data.curAction == "bluff" || Player1Data.curAction == "bluff" && Player2Data.curAction == "defend")
             {
-                player2Data.TakeDamage(5);
+                player2Data.TakeDamage(10);
                 
                 resultText.text = "Player 1 get point!";
             }
             else if (Player1Data.curAction == "bluff" && Player2Data.curAction == "attack" || Player1Data.curAction == "defend" && Player2Data.curAction == "bluff")
             {
-                player1Data.TakeDamage(5);
+                player1Data.TakeDamage(10);
                 
                 resultText.text = "Player 2 get point!";
             }
             else if(Player1Data.curAction == "attack" && Player2Data.curAction == "attack" || Player1Data.curAction == "bluff" && Player2Data.curAction == "bluff")
             {
-                player1Data.TakeDamage(5);
-                player2Data.TakeDamage(5);
+                player1Data.TakeDamage(10);
+                player2Data.TakeDamage(10);
                 
                 resultText.text = "Both get hurt";
             }

@@ -13,13 +13,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: Block
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -50,9 +50,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .326086968
+  m_TransitionDuration: .80392915
   m_TransitionOffset: 0
-  m_ExitTime: .673913002
+  m_ExitTime: .997386873
   m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -73,9 +73,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .416666687
+  m_TransitionDuration: .416666627
   m_TransitionOffset: 0
-  m_ExitTime: .583333313
+  m_ExitTime: 1.00369895
   m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -96,9 +96,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .416666687
+  m_TransitionDuration: .416666657
   m_TransitionOffset: 0
-  m_ExitTime: .583333313
+  m_ExitTime: 1.00247312
   m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -119,9 +119,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .416666687
+  m_TransitionDuration: .39460668
   m_TransitionOffset: 0
-  m_ExitTime: .583333313
+  m_ExitTime: 1.00247312
   m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -133,7 +133,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TwoPlayer_Player1StageAnimation
-  m_Speed: .899999976
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110173036}

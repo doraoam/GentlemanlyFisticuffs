@@ -99,12 +99,38 @@ public class Player1Data : MonoBehaviour
         else
         {
             curAction = "nothing";
-
+            
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
-                player1Animator.SetBool("Punch", false);
+                player1Animator.SetBool("Punch",false);
+
+                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+                {
+                    player1Animator.speed = 1f;
+                }
+
                 player1Animator.SetBool("Block", false);
-                //player1Animator.speed = 1f;
+
+                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+                {
+                    player1Animator.speed = 1f;
+                }
+
+                //if (!player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+                //{
+                //    player1Animator.speed = 1;
+                //}   
+
+                //if (!player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation") && !player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+                //{
+                //    player1Animator.SetBool("Punch", false);
+                //    player1Animator.SetBool("Block", false);
+                //    player1Animator.speed = 1;
+                //}
+
+                //player1Animator.SetBool("Punch", false);
+                //player1Animator.SetBool("Block", false);
+                //player1Animator.speed = 1;
             }
         }  
     }

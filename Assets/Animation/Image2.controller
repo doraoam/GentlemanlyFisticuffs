@@ -50,9 +50,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .416666687
+  m_TransitionDuration: .416666746
   m_TransitionOffset: 0
-  m_ExitTime: .583333313
+  m_ExitTime: .929129601
   m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -73,9 +73,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .416666687
-  m_TransitionOffset: 0
-  m_ExitTime: .583333313
+  m_TransitionDuration: .587214828
+  m_TransitionOffset: .00443502236
+  m_ExitTime: 1.00255001
   m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -119,9 +119,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .326086968
+  m_TransitionDuration: .773409307
   m_TransitionOffset: 0
-  m_ExitTime: .673913002
+  m_ExitTime: .99249804
   m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -169,7 +169,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Player2Animation
-  m_Speed: .899999976
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110109298}

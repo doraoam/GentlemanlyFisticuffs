@@ -114,8 +114,18 @@ public class Player2Data : MonoBehaviour
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
                     player2Animator.SetBool("Punch", false);
+
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+                    {
+                        player2Animator.speed = 1f;
+                    }
+
                     player2Animator.SetBool("Block", false);
-                    //player2Animator.speed = 1f;
+
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+                    {
+                        player2Animator.speed = 1f;
+                    }
                 }
             }
         }
@@ -176,8 +186,18 @@ public class Player2Data : MonoBehaviour
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
                     player2Animator.SetBool("Punch", false);
+
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+                    {
+                        player2Animator.speed = 1f;
+                    }
+
                     player2Animator.SetBool("Block", false);
-                    //player2Animator.speed = 1f;
+
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+                    {
+                        player2Animator.speed = 1f;
+                    }
                 }
             }
         }

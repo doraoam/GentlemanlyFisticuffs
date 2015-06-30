@@ -71,6 +71,7 @@
      <Compile Include="Assets\Script\RandomCharacter.cs" />
      <Compile Include="Assets\Script\ReplayButton.cs" />
      <Compile Include="Assets\Script\SelectedCharacter.cs" />
+     <Compile Include="Assets\Script\StartFight.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
      <Compile Include="Assets\Script\TwoPlayer.cs" />
      <Compile Include="Assets\Script\TwoPlayerChooseCharacter.cs" />
