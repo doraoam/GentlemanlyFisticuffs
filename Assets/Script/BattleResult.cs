@@ -12,6 +12,9 @@ public class BattleResult : MonoBehaviour
     Player1Data player1Data;
     Player2Data player2Data;
 
+    Animator player1Animator;
+    Animator player2Animator;
+
     // Use this for initialization
     void Start()
     {
@@ -31,20 +34,20 @@ public class BattleResult : MonoBehaviour
         {
             if (Player1Data.curAction == "attack" && Player2Data.curAction == "bluff" || Player1Data.curAction == "bluff" && Player2Data.curAction == "defend")
             {
-                player2Data.TakeDamage(10);
-                
+                player2Data.TakeDamage(10,Player1Data.curAction);
+
                 resultText.text = "Player 1 get point!";
             }
             else if (Player1Data.curAction == "bluff" && Player2Data.curAction == "attack" || Player1Data.curAction == "defend" && Player2Data.curAction == "bluff")
             {
-                player1Data.TakeDamage(10);
-                
+                player1Data.TakeDamage(10,Player2Data.curAction);
+
                 resultText.text = "Player 2 get point!";
             }
             else if(Player1Data.curAction == "attack" && Player2Data.curAction == "attack" || Player1Data.curAction == "bluff" && Player2Data.curAction == "bluff")
             {
-                player1Data.TakeDamage(10);
-                player2Data.TakeDamage(10);
+                player1Data.TakeDamage(10,Player2Data.curAction);
+                player2Data.TakeDamage(10,Player1Data.curAction);
                 
                 resultText.text = "Both get hurt";
             }

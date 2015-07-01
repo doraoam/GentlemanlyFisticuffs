@@ -17,7 +17,7 @@ public class StartFight : MonoBehaviour
     {
         if (!startAnimator.GetCurrentAnimatorStateInfo(0).IsName("CountController"))
         {
-            startAnimator.SetBool("isStart",false);
+            //startAnimator.SetBool("isStart",false);
             startFightCanvas.SetActive(false);
         }
         else

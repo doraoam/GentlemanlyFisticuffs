@@ -48,85 +48,14 @@ public class Player2Data : MonoBehaviour
     {
         if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
         {
-            if (Player1Data.curAction != "nothing" && Player1Data.curAction != "Death")
-            {
-                float randValue = Random.value;
-                if (randValue < .45f)
+            if(NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation){
+                if (!player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation") && !player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
                 {
-                    curAction = "attack";
-                    showAction.text = "Attack";
-
-                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                    {
-                        player2Animator.SetBool("Punch", true);
-                        player2Animator.SetBool("Block", false);
-                        player2Animator.speed = 0.65f;
-                    }
+                    AutoController();
                 }
-                else if (randValue >= .45f && randValue < .9f)
-                {
-                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                    {
-                        player2Animator.SetBool("Punch", false);
-                        player2Animator.SetBool("Block", true);
-                        player2Animator.speed = 1f;
-                    }
-
-                    curAction = "defend";
-                    showAction.text = "Defend";
-                }
-                else if(randValue > .9f)
-                {
-                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                    {
-                        player2Animator.SetBool("Punch", false);
-                        player2Animator.SetBool("Block", false);
-                        player2Animator.speed = 1f;
-                    }
-
-                    curAction = "bluff";
-                    showAction.text = "Bluff";
-                }
-                else
-                {
-                    if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                    {
-                        player2Animator.SetBool("Punch", false);
-                        player2Animator.SetBool("Block", false);
-                        player2Animator.speed = 1f;
-                    }
-                }
-            }
-            else if (Player1Data.curAction == "Death" && Player1Data.isDead)
-            {
-                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                {
-                    player2Animator.SetBool("Punch", false);
-                    player2Animator.SetBool("Block", false);
-                    player2Animator.speed = 1f;
-                }
-
-                curAction = "nothing";
-                showAction.text = "Winner!";
-            }
-            else
-            {
-                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                {
-                    player2Animator.SetBool("Punch", false);
-
-                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
-                    {
-                        player2Animator.speed = 1f;
-                    }
-
-                    player2Animator.SetBool("Block", false);
-
-                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
-                    {
-                        player2Animator.speed = 1f;
-                    }
-                }
+            }else{
+                AutoController();
+                Debug.Log("InState2");
             }
         }
         else
@@ -203,11 +132,111 @@ public class Player2Data : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
+    void AutoController()
+    {
+        if (Player1Data.curAction != "nothing" && Player1Data.curAction != "Death" && Player1Data.curAction != "Punched" && Player1Data.curAction != "Bluffed")
+        {
+            float randValue = Random.value;
+            if (randValue < .45f)
+            {
+                curAction = "attack";
+                showAction.text = "Attack";
+
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", true);
+                    player2Animator.SetBool("Block", false);
+                    player2Animator.speed = 0.65f;
+                }
+            }
+            else if (randValue >= .45f && randValue < .9f)
+            {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", true);
+                    player2Animator.speed = 1f;
+                }
+
+                curAction = "defend";
+                showAction.text = "Defend";
+            }
+            else if (randValue > .9f)
+            {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", false);
+                    player2Animator.speed = 1f;
+                }
+
+                curAction = "bluff";
+                showAction.text = "Bluff";
+            }
+            else
+            {
+                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                {
+                    player2Animator.SetBool("Punch", false);
+                    player2Animator.SetBool("Block", false);
+                    player2Animator.speed = 1f;
+                }
+            }
+        }
+        else if (Player1Data.curAction == "Death" && Player1Data.isDead)
+        {
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+            {
+                player2Animator.SetBool("Punch", false);
+                player2Animator.SetBool("Block", false);
+                player2Animator.speed = 1f;
+            }
+
+            curAction = "nothing";
+            showAction.text = "Winner!";
+        }
+        else
+        {
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+            {
+                player2Animator.SetBool("Punch", false);
+
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+                {
+                    player2Animator.speed = 1f;
+                }
+
+                player2Animator.SetBool("Block", false);
+
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+                {
+                    player2Animator.speed = 1f;
+                }
+
+                player2Animator.SetBool("Punched", false);
+                player2Animator.SetBool("Bluffed", false);
+            }
+        }
+    }
+
+    public void TakeDamage(int amount,string action)
     {
         curHealth -= amount;
 
         healthSlider.value = curHealth;
+
+        if (action == "attack")
+        {
+            player2Animator.SetBool("Punched",true);
+
+            curAction = "Punched";
+        }
+        else if (action == "bluff")
+        {
+            player2Animator.SetBool("Bluffed",true);
+
+            curAction = "Bluffed";
+        }
 
         if (curHealth <= 0 && !isDead)
         {
