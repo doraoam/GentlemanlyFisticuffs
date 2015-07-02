@@ -53,9 +53,20 @@ public class Player2Data : MonoBehaviour
                 {
                     AutoController();
                 }
+                else
+                {
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
+                    {
+                        player2Animator.SetBool("Bluffed", false);
+                    }
+
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation"))
+                    {
+                        player2Animator.SetBool("Punched", false);
+                    }
+                }
             }else{
                 AutoController();
-                Debug.Log("InState2");
             }
         }
         else
@@ -69,6 +80,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", true);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.SetBool("Bluff", false);
                     player2Animator.speed = 0.65f;
                 }
             }
@@ -78,6 +90,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", true);
+                    player2Animator.SetBool("Bluff", false);
                     player2Animator.speed = 1f;
                 }
 
@@ -90,6 +103,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.SetBool("Bluff", true);
                     player2Animator.speed = 1f;
                 }
 
@@ -102,6 +116,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.SetBool("Bluff", false);
                     player2Animator.speed = 1f;
                 }
 
@@ -114,18 +129,19 @@ public class Player2Data : MonoBehaviour
 
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
-                    player2Animator.SetBool("Punch", false);
-
-                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchAnimation"))
                     {
-                        player2Animator.speed = 1f;
+                        player2Animator.SetBool("Punch", false);
                     }
 
-                    player2Animator.SetBool("Block", false);
-
-                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BlockAnimation"))
                     {
-                        player2Animator.speed = 1f;
+                        player2Animator.SetBool("Block", false);
+                    }
+
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffAnimation"))
+                    {
+                        player2Animator.SetBool("Bluff", false);
                     }
                 }
             }
@@ -134,7 +150,7 @@ public class Player2Data : MonoBehaviour
 
     void AutoController()
     {
-        if (Player1Data.curAction != "nothing" && Player1Data.curAction != "Death" && Player1Data.curAction != "Punched" && Player1Data.curAction != "Bluffed")
+        if (Player1Data.curAction != "nothing" && Player1Data.curAction != "Death" && (Player1Data.curAction != "Punched" || Player1Data.curAction != "Bluffed"))
         {
             float randValue = Random.value;
             if (randValue < .45f)
@@ -146,6 +162,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", true);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.SetBool("Bluff", false);
                     player2Animator.speed = 0.65f;
                 }
             }
@@ -155,6 +172,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", true);
+                    player2Animator.SetBool("Bluff", false);
                     player2Animator.speed = 1f;
                 }
 
@@ -167,6 +185,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.SetBool("Bluff", true);
                     player2Animator.speed = 1f;
                 }
 
@@ -179,6 +198,7 @@ public class Player2Data : MonoBehaviour
                 {
                     player2Animator.SetBool("Punch", false);
                     player2Animator.SetBool("Block", false);
+                    player2Animator.SetBool("Bluff", false);
                     player2Animator.speed = 1f;
                 }
             }
@@ -189,6 +209,7 @@ public class Player2Data : MonoBehaviour
             {
                 player2Animator.SetBool("Punch", false);
                 player2Animator.SetBool("Block", false);
+                player2Animator.SetBool("Bluff", false);
                 player2Animator.speed = 1f;
             }
 
@@ -199,22 +220,20 @@ public class Player2Data : MonoBehaviour
         {
             if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
             {
-                player2Animator.SetBool("Punch", false);
-
-                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchAnimation"))
                 {
-                    player2Animator.speed = 1f;
+                    player2Animator.SetBool("Punch", false);
                 }
 
-                player2Animator.SetBool("Block", false);
-
-                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BlockAnimation"))
                 {
-                    player2Animator.speed = 1f;
+                    player2Animator.SetBool("Block", false);
                 }
 
-                player2Animator.SetBool("Punched", false);
-                player2Animator.SetBool("Bluffed", false);
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffAnimation"))
+                {
+                    player2Animator.SetBool("Bluff", false);
+                }
             }
         }
     }

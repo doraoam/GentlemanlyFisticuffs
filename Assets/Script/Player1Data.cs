@@ -56,7 +56,15 @@ public class Player1Data : MonoBehaviour
             }
             else
             {
-                Debug.Log("InState");
+                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation"))
+                {
+                    player1Animator.SetBool("Bluffed", false);
+                }
+
+                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation"))
+                {
+                    player1Animator.SetBool("Punched", false);
+                }
             }
         }
         else
@@ -100,6 +108,7 @@ public class Player1Data : MonoBehaviour
                 player1Animator.SetBool("Punch", false);
                 player1Animator.SetBool("Block", false);
                 player1Animator.SetBool("Bluff", true);
+                Debug.Log("Bluff");
                 player1Animator.speed = 1f;
             }
 
@@ -125,24 +134,20 @@ public class Player1Data : MonoBehaviour
 
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
-                player1Animator.SetBool("Punch", false);
-
                 if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
                 {
-                    player1Animator.speed = 1f;
+                    player1Animator.SetBool("Punch", false);
                 }
-
-                player1Animator.SetBool("Block", false);
 
                 if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
                 {
-                    player1Animator.speed = 1f;
+                    player1Animator.SetBool("Block",false);
                 }
 
-                player1Animator.SetBool("Bluff", false);
-
-                player1Animator.SetBool("Punched", false);
-                player1Animator.SetBool("Bluffed", false);
+                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffAnimation"))
+                {
+                    player1Animator.SetBool("Bluff", false);
+                }
             }
         }
     }

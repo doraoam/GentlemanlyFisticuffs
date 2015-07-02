@@ -44,11 +44,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.2166667
-        value: -115
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_AnchoredPosition.x
@@ -59,11 +54,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -30
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 1.2166667
         value: -30
         inSlope: 0
         outSlope: 0
@@ -94,8 +84,6 @@ AnimationClip:
       value: {fileID: 21300014, guid: edea4708e81ee3847a50c1011cf8ff8d, type: 3}
     - time: 1.06666672
       value: {fileID: 21300016, guid: edea4708e81ee3847a50c1011cf8ff8d, type: 3}
-    - time: 1.2166667
-      value: {fileID: 21300018, guid: edea4708e81ee3847a50c1011cf8ff8d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 114
@@ -141,11 +129,10 @@ AnimationClip:
     - {fileID: 21300012, guid: edea4708e81ee3847a50c1011cf8ff8d, type: 3}
     - {fileID: 21300014, guid: edea4708e81ee3847a50c1011cf8ff8d, type: 3}
     - {fileID: 21300016, guid: edea4708e81ee3847a50c1011cf8ff8d, type: 3}
-    - {fileID: 21300018, guid: edea4708e81ee3847a50c1011cf8ff8d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: 1.23333335
+    m_StopTime: 1.08333337
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -240,11 +227,6 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 1.2166667
-        value: -115
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_AnchoredPosition.x
@@ -255,11 +237,6 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -30
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 1.2166667
         value: -30
         inSlope: 0
         outSlope: 0
