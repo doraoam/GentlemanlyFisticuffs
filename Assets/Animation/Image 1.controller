@@ -100,7 +100,7 @@ AnimatorStateTransition:
   m_TransitionDuration: .300000131
   m_TransitionOffset: 0
   m_ExitTime: .923707545
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -129,7 +129,7 @@ AnimatorStateTransition:
   m_TransitionDuration: .460113168
   m_TransitionOffset: 0
   m_ExitTime: .899155736
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -158,7 +158,7 @@ AnimatorStateTransition:
   m_TransitionDuration: .397954732
   m_TransitionOffset: 0
   m_ExitTime: .93717128
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
@@ -201,9 +201,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .249121368
+  m_TransitionDuration: .249121279
   m_TransitionOffset: 0
-  m_ExitTime: .737351596
+  m_ExitTime: .970815778
   m_HasExitTime: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -224,9 +224,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .490521908
+  m_TransitionDuration: .196135432
   m_TransitionOffset: 0
-  m_ExitTime: .802631557
+  m_ExitTime: .802631676
   m_HasExitTime: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -339,9 +339,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: .281331688
+  m_TransitionDuration: .281331629
   m_TransitionOffset: 0
-  m_ExitTime: .733681679
+  m_ExitTime: .998259604
   m_HasExitTime: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -396,7 +396,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Player1BluffAnimation
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110157842}
@@ -437,7 +437,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Player1PunchAnimation
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110122472}
@@ -456,7 +456,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Player1BluffDamageAnimation
-  m_Speed: 2
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110124076}
@@ -474,7 +474,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Player1BlockAnimation
-  m_Speed: 1
+  m_Speed: 1.5
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110124242}
