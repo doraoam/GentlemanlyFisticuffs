@@ -1,6 +1,8 @@
 # directories
 
 Fisticuffs_Data/
+Fisticuffs-DC_Data/
+Fisticuffs-DC+Scottish Collection_Data/
 Fisticuffs-test_Data/
 Library/
 obj/
@@ -10,3 +12,6 @@ Temp/
 # files
 
 Fisticuffs.exe
+Fisticuffs-DC.exe
+Fisticuffs-DC+Scottish Collection.exe
+Fisticuffs-test.exe
