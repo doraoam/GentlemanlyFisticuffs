@@ -80,8 +80,20 @@ public class ChoosePlayer : MonoBehaviour
                 player1Sprite = Player1MoveableSprite[0];
 
                 Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+                Player1Animator.SetBool("Scottish", true);
                 Player1Animator.enabled = true;
-                //Player1Animator.SetBool("Selected", true);
+
+                NextButtonCharacterSelection.player1UseAnimation = true;
+            }
+            else if (NextButtonCharacterSelection.playerName == "English")
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+
+                player1Sprite = Player1MoveableSprite[0];
+
+                Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+                Player1Animator.SetBool("English",true);
+                Player1Animator.enabled = true;
 
                 NextButtonCharacterSelection.player1UseAnimation = true;
             }
