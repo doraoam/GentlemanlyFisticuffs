@@ -25,18 +25,16 @@ public class Scott : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            if (animator.GetBool("isAttacking"))
+            if (!animator.GetBool("isAttacking"))
             {
                 animator.SetBool("isAttacking", true);
                 animator.SetBool("isDefending", false);
             }
-
-
         }
 
         else if (Input.GetKeyDown(KeyCode.S))
         {
-            if (animator.GetBool("isDefending"))
+            if (!animator.GetBool("isDefending"))
             {
                 animator.SetBool("isAttacking", false);
                 animator.SetBool("isDefending", true);
@@ -45,7 +43,8 @@ public class Scott : MonoBehaviour
 
         else
         {
-            animator.SetBool("isIdle", true);
+            animator.SetBool("isAttacking", false);
+            animator.SetBool("isDefending", false);
         }
 
 
