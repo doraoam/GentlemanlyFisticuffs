@@ -155,6 +155,7 @@ public class Player1Data : MonoBehaviour
     {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         curHealth -= amount;
 
         healthSlider.value = curHealth;
@@ -186,6 +187,10 @@ public class Player1Data : MonoBehaviour
         if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
         {
 >>>>>>> origin/master
+=======
+        if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
+        {
+>>>>>>> origin/master
             if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
             {
                 player1Animator.SetBool("Punch", false);
@@ -206,6 +211,9 @@ public class Player1Data : MonoBehaviour
                 getDamge(action);
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 =======
 >>>>>>> origin/master

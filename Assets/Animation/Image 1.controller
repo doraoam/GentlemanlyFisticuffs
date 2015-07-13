@@ -341,7 +341,11 @@ AnimatorStateTransition:
   serializedVersion: 3
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_TransitionDuration: .800000012
+=======
+  m_TransitionDuration: .531114042
+>>>>>>> origin/master
 =======
   m_TransitionDuration: .531114042
 >>>>>>> origin/master
