@@ -4,182 +4,79 @@ using UnityEngine.UI;
 
 public class BattleResult : MonoBehaviour
 {
-    public Text resultText;
-
     GameObject player1;
     GameObject player2;
 
     Player1Data player1Data;
     Player2Data player2Data;
 
-    Animator player1Animator;
-    Animator player2Animator;
+    ArrayList actionPlayer1;
+    ArrayList actionPlayer2;
+
+    string player1Action;
+    string player2Action;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        resultText.text = "result";
-
         player1 = GameObject.FindGameObjectWithTag("Player1Data");
         player2 = GameObject.FindGameObjectWithTag("Player2Data");
 
         player1Data = player1.GetComponent<Player1Data>();
         player2Data = player2.GetComponent<Player2Data>();
 
-        if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-        {
-            player1Animator = GameObject.FindGameObjectWithTag("Player1Animator").GetComponent<Animator>();
-        }
-
-        if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-        {
-            player2Animator = GameObject.FindGameObjectWithTag("Player2Animator").GetComponent<Animator>();
-        }
+        actionPlayer1 = new ArrayList();
+        actionPlayer2 = new ArrayList();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Player1Data.curAction == "attack" && Player2Data.curAction == "bluff" || Player1Data.curAction == "bluff" && Player2Data.curAction == "defend")
-        {
-            player2Data.TakeDamage(10, Player1Data.curAction);
+        addAction();
 
-            resultText.text = "Player 1 get point!";
-        }
-        else if (Player1Data.curAction == "bluff" && Player2Data.curAction == "attack" || Player1Data.curAction == "defend" && Player2Data.curAction == "bluff")
-        {
-            player1Data.TakeDamage(10, Player2Data.curAction);
-
-            resultText.text = "Player 2 get point!";
-        }
-        else if (Player1Data.curAction == "attack" && Player2Data.curAction == "attack" || Player1Data.curAction == "bluff" && Player2Data.curAction == "bluff")
-        {
-            player1Data.TakeDamage(10, Player2Data.curAction);
-            player2Data.TakeDamage(10, Player1Data.curAction);
-
-            resultText.text = "Both get hurt";
-        }
-        else
-        {
-            //resultText.text = "Nothing happen.";
-        }
-            //if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-            //{
-            //    if (!player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation") && !player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation"))
-            //    {
-            //        player1Controller();
-            //    }
-            //    else
-            //    {
-            //        if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation"))
-            //        {
-            //            player1Animator.SetBool("Bluffed", false);
-            //        }
-
-            //        if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation"))
-            //        {
-            //            player1Animator.SetBool("Punched", false);
-            //        }
-            //    }
-            //}
-            
-            //if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-            //{
-            //    if (!player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation") && !player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
-            //    {
-            //        player2Controller();
-            //    }
-            //    else
-            //    {
-            //        if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
-            //        {
-            //            player2Animator.SetBool("Bluffed", false);
-            //        }
-
-            //        if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation"))
-            //        {
-            //            player2Animator.SetBool("Punched", false);
-            //        }
-            //    }
-            //}
-
+        checkAction();
     }
 
-    //void player1Controller()
-    //{
-    //    if (Player1Data.curAction == "attack")
-    //    {
-    //        player1Animator.SetBool("Punch", true);
-    //        player1Animator.SetBool("Block", false);
-    //        player1Animator.SetBool("Bluff", false);
-    //    }
-    //    else if (Player1Data.curAction == "defend")
-    //    {
-    //        player1Animator.SetBool("Punch", false);
-    //        player1Animator.SetBool("Block", true);
-    //        player1Animator.SetBool("Bluff", false);
-    //    }
-    //    else if (Player1Data.curAction == "bluff")
-    //    {
-    //        player1Animator.SetBool("Punch", false);
-    //        player1Animator.SetBool("Block", false);
-    //        player1Animator.SetBool("Bluff", true);
-    //    }
-    //    else
-    //    {
-    //        //if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
-    //        //{
-    //        //    player1Animator.SetBool("Punch", false);
-    //        //}
+    void addAction()
+    {
+        if (Player1Data.curAction != "nothing")
+        {
+            actionPlayer1.Add(Player1Data.curAction);
+        }else if(Player2Data.curAction != "nothing"){
+            actionPlayer2.Add(Player2Data.curAction);
+        }
+    }
 
-    //        //if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
-    //        //{
-    //        //    player1Animator.SetBool("Block", false);
-    //        //}
+    void checkAction()
+    {
+        if (actionPlayer1.Count > 1 && actionPlayer2.Count > 1)
+        {
+            player1Action = (string)actionPlayer1[0];
+            player2Action = (string)actionPlayer2[0];
 
-    //        //if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffAnimation"))
-    //        //{
-    //        //    player1Animator.SetBool("Bluff", false);
-    //        //}
-    //    }
-    //}
+            if (player1Action == "attack" && player2Action == "bluff" || player1Action == "bluff" && player2Action == "defend")
+            {
+                Debug.Log(player1Action + " " + player2Action);
+                player2Data.TakeDamage(10, player1Action);
+            }
+            else if (player1Action == "bluff" && player2Action == "attack" || player1Action == "defend" && player2Action == "bluff")
+            {
+                Debug.Log(player1Action + " " + player2Action);
+                player1Data.TakeDamage(10, player2Action);
+            }
+            else if (player1Action == "attack" && player2Action == "attack" || player1Action == "bluff" && player2Action == "bluff")
+            {
+                Debug.Log(player1Action + " " + player2Action);
+                player1Data.TakeDamage(10, player2Action);
+                player2Data.TakeDamage(10, player1Action);
+            }
+            else
+            {
+                //resultText.text = "Nothing happen.";
+            }
 
-    //void player2Controller()
-    //{
-    //    if (Player2Data.curAction == "attack")
-    //    {
-    //        player2Animator.SetBool("Punch", true);
-    //        player2Animator.SetBool("Block", false);
-    //        player2Animator.SetBool("Bluff", false);
-    //    }
-    //    else if (Player2Data.curAction == "defend")
-    //    {
-    //        player2Animator.SetBool("Punch", false);
-    //        player2Animator.SetBool("Block", true);
-    //        player2Animator.SetBool("Bluff", false);
-    //    }
-    //    else if (Player2Data.curAction == "bluff")
-    //    {
-    //        player2Animator.SetBool("Punch", false);
-    //        player2Animator.SetBool("Block", false);
-    //        player2Animator.SetBool("Bluff", true);
-    //    }
-    //    else
-    //    {
-    //        //if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchAnimation"))
-    //        //{
-    //        //    player2Animator.SetBool("Punch", false);
-    //        //}
-
-    //        //if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BlockAnimation"))
-    //        //{
-    //        //    player2Animator.SetBool("Block", false);
-    //        //}
-
-    //        //if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffAnimation"))
-    //        //{
-    //        //    player2Animator.SetBool("Bluff", false);
-    //        //}
-    //    }    
-    //}
+            actionPlayer1.RemoveAt(0);
+            actionPlayer2.RemoveAt(0);
+        }
+    }
 }

@@ -71,10 +71,10 @@ public class Player1Data : MonoBehaviour
             controller();
         }
     }
-
+    bool isAttacking = false;
     void controller()
     {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("Attack"))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("Attack") && !isAttacking)
         {
             curAction = "attack";
             showAction.text = "Attack";
@@ -87,7 +87,7 @@ public class Player1Data : MonoBehaviour
                 player1Animator.speed = 1f;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("Defend"))
+        else if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("Defend") && !isAttacking)
         {
             curAction = "defend";
             showAction.text = "Defend";
@@ -100,7 +100,7 @@ public class Player1Data : MonoBehaviour
                 player1Animator.speed = 1f;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Bluff"))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Bluff") && !isAttacking)
         {
             curAction = "bluff";
             showAction.text = "Bluff";
@@ -135,6 +135,7 @@ public class Player1Data : MonoBehaviour
                 if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
                 {
                     player1Animator.SetBool("Punch", false);
+
                 }
 
                 if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
@@ -150,13 +151,10 @@ public class Player1Data : MonoBehaviour
         }
     }
 
-    public void Damage(string action)
-    {
-        TakeDamage(10, action);
-    }
-
     public void TakeDamage(int amount,string action)
     {
+<<<<<<< HEAD
+<<<<<<< HEAD
         curHealth -= amount;
 
         healthSlider.value = curHealth;
@@ -164,25 +162,74 @@ public class Player1Data : MonoBehaviour
         if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
         {
             player1Animator.SetBool("Punch",false);
+            isAttacking = false;
             Debug.Log("Punch");
             getDamge(action);
         }
         else if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
         {
             player1Animator.SetBool("Block",false);
+            isAttacking = false;
             Debug.Log("Block");
             getDamge(action);
         }
         else if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffAnimation"))
         {
             player1Animator.SetBool("Bluff",false);
+            isAttacking = false;
             Debug.Log("Bluff");
             getDamge(action);
+=======
+        if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
+        {
+=======
+        if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
+        {
+>>>>>>> origin/master
+            if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
+            {
+                player1Animator.SetBool("Punch", false);
+                getDamge(action);
+            }
+            else if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
+            {
+                player1Animator.SetBool("Block", false);
+                getDamge(action);
+            }
+            else if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffAnimation"))
+            {
+                player1Animator.SetBool("Bluff", false);
+                getDamge(action);
+            }
+            else
+            {
+                getDamge(action);
+            }
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
         }
         else
         {
-            getDamge(action);
+            if (action == "attack")
+            {
+                curAction = "Punched";
+            }
+            else if (action == "bluff")
+            {
+                curAction = "Bluffed";
+            }
+
+            if (curHealth <= 0 && !isDead)
+            {
+                Death();
+            }
         }
+
+        curHealth -= amount;
+
+        healthSlider.value = curHealth;
     }
 
     public void getDamge(string action)
@@ -204,6 +251,7 @@ public class Player1Data : MonoBehaviour
         {
             Death();
         }
+        isAttacking = false;
     }
 
     public void Death()
