@@ -5,59 +5,112 @@ using UnityEngine.UI;
 public class TwoPlayerStageCharacter : MonoBehaviour
 {
     public Sprite player1Sprite;
+    public Sprite[] Player1MoveableSprite;
+    public Image playerImage;
     public Text player1Text;
     public Animator playerAnimator;
 
     public Sprite player2Sprite;
+    public Sprite[] Player2MoveableSprite;
+    public Image player2Image;
     public Text player2Text;
-    public Animator enermyAnimator;
+    public Animator player2Animator;
 
     void Awake()
     {
         if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer)
         {
-            player1Sprite = TwoPlayerNextButtonCharacterSelection.player1Image;
+            chooseCharacter(TwoPlayerNextButtonCharacterSelection.player1Name, 1);
 
-            player2Sprite = TwoPlayerNextButtonCharacterSelection.player2Image;
-
-            if (TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-            {
-                playerAnimator = GameObject.Find("Player1/Image 1").GetComponent<Animator>();
-                playerAnimator.enabled = true;
-                playerAnimator.SetBool("Selected", true);
-            }
-
-            if (TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-            {
-                enermyAnimator = GameObject.Find("Player2/Image2").GetComponent<Animator>();
-                enermyAnimator.enabled = true;
-                enermyAnimator.SetBool("Selected", true);
-            }
-
-            Image Image1 = transform.Find("Player1/Image 1").GetComponent<Image>();
-            Image1.sprite = player1Sprite;
-
-            Image Image2 = transform.Find("Player2/Image2").GetComponent<Image>();
-            Image2.sprite = player2Sprite;
+            chooseCharacter(TwoPlayerNextButtonCharacterSelection.player2Name, 2);
         }
         else
         {
-            player1Sprite = Resources.Load<Sprite>("DC/Batman-SUMPC");
-            Image Image1 = transform.Find("Player1/Image 1").GetComponent<Image>();
-            Image1.sprite = player1Sprite;
+            chooseCharacter("Scottish", 1);
 
-            player2Sprite = player1Sprite;
+            chooseCharacter("Scottish", 2);
+        }
+    }
 
-            while (player2Sprite == player1Sprite)
+    void chooseCharacter(string name, int playerNumber)
+    {
+        if (name == "Scottish")
+        {
+            if (playerNumber == 1)
             {
-                Sprite[] images = Resources.LoadAll<Sprite>("DC/");
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
 
-                // if create a new Sprite variable here will found unlimit loop.
-                player2Sprite = images[Random.Range(0, images.Length)];
+                player1Sprite = Player1MoveableSprite[0];
+
+                playerImage = GameObject.Find("Player1/Character/Scottish").GetComponent<Image>();
+                playerImage.enabled = true;
+
+                playerAnimator = GameObject.Find("Player1/Character/Scottish").GetComponent<Animator>();
+                playerAnimator.enabled = true;
+
+                player1Text = GameObject.Find("Player1/Player1Name").GetComponent<Text>();
+                player1Text.text = "Scottish";
+
+                TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
             }
+            else
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
 
-            Image Image2 = transform.Find("Player2/Image2").GetComponent<Image>();
-            Image2.sprite = player2Sprite;
+                player2Sprite = Player2MoveableSprite[0];
+
+                player2Image = GameObject.Find("Player2/Character/Scottish").GetComponent<Image>();
+                player2Image.enabled = true;
+
+                player2Animator = GameObject.Find("Player2/Character/Scottish").GetComponent<Animator>();
+                player2Animator.enabled = true;
+
+                player2Text = GameObject.Find("Player2/Player2Name").GetComponent<Text>();
+                player2Text.text = "Scottish";
+
+                TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
+            }
+        }
+        else if (name == "English")
+        {
+            if (playerNumber == 1)
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+
+                player1Sprite = Player1MoveableSprite[0];
+
+                playerImage = GameObject.Find("Player1/Character/English").GetComponent<Image>();
+                playerImage.enabled = true;
+
+                playerAnimator = GameObject.Find("Player1/Character/English").GetComponent<Animator>();
+                playerAnimator.enabled = true;
+
+                player1Text = GameObject.Find("Player1/Player1Name").GetComponent<Text>();
+                player1Text.text = "English";
+
+                TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
+            }
+            else
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+
+                player2Sprite = Player2MoveableSprite[0];
+
+                player2Image = GameObject.Find("Player2/Character/English").GetComponent<Image>();
+                player2Image.enabled = true;
+
+                player2Animator = GameObject.Find("Player2/Character/English").GetComponent<Animator>();
+                player2Animator.enabled = true;
+
+                player2Text = GameObject.Find("Player2/Player2Name").GetComponent<Text>();
+                player2Text.text = "English";
+
+                TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
+            }
+        }
+        else
+        {
+
         }
     }
 }

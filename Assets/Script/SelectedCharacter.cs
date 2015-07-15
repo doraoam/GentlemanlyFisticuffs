@@ -6,66 +6,112 @@ using System.Linq;
 public class SelectedCharacter : MonoBehaviour 
 {
     public Sprite playerSprite;
+    public Sprite[] Player1MoveableSprite;
+    public Image playerImage;
     public Text playerText;
     public Animator playerAnimator;
 
     public Sprite enermySprite;
+    public Sprite[] Player2MoveableSprite;
+    public Image enermyImage;
     public Text enermyText;
     public Animator enermyAnimator;
  
     void Awake()
     {
-        //if (NextButtonCharacterSelection.player2Image)
-        //{
-        //    playerSprite = NextButtonCharacterSelection.playerImage;
-        //    Image Image1 = transform.Find("Player1/Image 1").GetComponent<Image>();
-        //    Image1.sprite = playerSprite;
+        if (NextButtonCharacterSelection.playerName != null)
+        {
+            chooseCharacter(NextButtonCharacterSelection.playerName,1);
 
-        //    if (NextButtonCharacterSelection.player1UseAnimation)
-        //    {
-        //        playerAnimator = GameObject.Find("Player1/Image 1").GetComponent<Animator>();
-        //        playerAnimator.enabled = true;
-        //        //playerAnimator.SetBool("Selected", true);
-        //    }
+            chooseCharacter(NextButtonCharacterSelection.player2Name,2);
+        }
+        else
+        {
+            chooseCharacter("English", 1);
 
-        //    enermySprite = NextButtonCharacterSelection.player2Image;
-        //    Image Image2 = transform.Find("Player2/Image2").GetComponent<Image>();
-        //    Image2.sprite = enermySprite;
+            chooseCharacter("English", 2);
+        }
+    }
 
-        //    if (NextButtonCharacterSelection.player2UseAnimation)
-        //    {
-        //        enermyAnimator = GameObject.Find("Player2/Image2").GetComponent<Animator>();
-        //        enermyAnimator.enabled = true;
-        //        //enermyAnimator.SetBool("Selected", true);
-        //    }
-        //}
-        //else
-        //{
-        //    playerSprite = Resources.Load<Sprite>("DC/Batman-SUMPC");
-        //    Image Image1 = transform.Find("Player1/Image 1").GetComponent<Image>();
-        //    Image1.sprite = playerSprite;
+    void chooseCharacter(string name, int playerNumber)
+    {
+        if (name == "Scottish")
+        {
+            if (playerNumber == 1)
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
 
-        //    enermySprite = playerSprite;
+                playerSprite = Player1MoveableSprite[0];
 
-        //    while (enermySprite == playerSprite)
-        //    {
-        //        Sprite[] images = Resources.LoadAll<Sprite>("DC/");
+                playerImage = GameObject.Find("Player1/Character/Scottish").GetComponent<Image>();
+                playerImage.enabled = true;
 
-        //        // if create a new Sprite variable here will found unlimit loop.
-        //        enermySprite = images[Random.Range(0, images.Length)];
-        //    }
+                playerAnimator = GameObject.Find("Player1/Character/Scottish").GetComponent<Animator>();
+                playerAnimator.enabled = true;
 
-        //    Image Image2 = transform.Find("Player2/Image2").GetComponent<Image>();
-        //    Image2.sprite = enermySprite;
-        //}
+                playerText = GameObject.Find("Player1/Player1Name").GetComponent<Text>();
+                playerText.text = "Scottish";
 
-        NextButtonCharacterSelection.player1UseAnimation = true;
-        NextButtonCharacterSelection.player2UseAnimation = true;
+                NextButtonCharacterSelection.player1UseAnimation = true;
+            }
+            else
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
 
-        playerAnimator = GameObject.Find("Player1/Image 1").GetComponent<Animator>();
-        playerAnimator.enabled = true;
+                enermySprite = Player2MoveableSprite[0];
+                
+                enermyImage = GameObject.Find("Player2/Character/Scottish").GetComponent<Image>();
+                enermyImage.enabled = true;
 
-        enermyAnimator = GameObject.Find("Player2/Image2").GetComponent<Animator>();
-        enermyAnimator.enabled = true;
+                enermyAnimator = GameObject.Find("Player2/Character/Scottish").GetComponent<Animator>();
+                enermyAnimator.enabled = true;
+
+                enermyText = GameObject.Find("Player2/Player2Name").GetComponent<Text>();
+                enermyText.text = "Scottish";
+
+                NextButtonCharacterSelection.player2UseAnimation = true;
+            }
+        }
+        else if (name == "English")
+        {
+            if (playerNumber == 1)
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+
+                playerSprite = Player1MoveableSprite[0];
+
+                playerImage = GameObject.Find("Player1/Character/English").GetComponent<Image>();
+                playerImage.enabled = true;
+
+                playerAnimator = GameObject.Find("Player1/Character/English").GetComponent<Animator>();
+                playerAnimator.enabled = true;
+
+                playerText = GameObject.Find("Player1/Player1Name").GetComponent<Text>();
+                playerText.text = "English";
+
+                NextButtonCharacterSelection.player1UseAnimation = true;
+            }
+            else
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+
+                enermySprite = Player2MoveableSprite[0];
+
+                enermyImage = GameObject.Find("Player2/Character/English").GetComponent<Image>();
+                enermyImage.enabled = true;
+
+                enermyAnimator = GameObject.Find("Player2/Character/English").GetComponent<Animator>();
+                enermyAnimator.enabled = true;
+
+                enermyText = GameObject.Find("Player2/Player2Name").GetComponent<Text>();
+                enermyText.text = "English";
+
+                NextButtonCharacterSelection.player2UseAnimation = true;
+            }
+        }
+        else
+        {
+
+        }
     }
 }

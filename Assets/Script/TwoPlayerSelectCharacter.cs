@@ -13,84 +13,55 @@ public class TwoPlayerSelectCharacter : MonoBehaviour
 
     void Start()
     {
-        player1Sprite = Resources.Load<Sprite>("DC/Joker_DC");
-        Image Image = transform.Find("Player1/playerImage").GetComponent<Image>();
-        Image.sprite = player1Sprite;
+        Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
+
+        player1Sprite = Player1MoveableSprite[0];
+
+        Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+        Player1Animator.SetBool("Scottish", true);
+        Player1Animator.enabled = true;
+
+        TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
 
         Text text = transform.Find("Player1/Player1Text").GetComponent<Text>();
-        text.text = "Please wait";
+        text.text = "Scottish";
     }
 
     void Update(){
         if (TwoPlayerNextButtonCharacterSelection.player1Name != null)
         {
-            if (TwoPlayerNextButtonCharacterSelection.player1Name == "Batman")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Batman-SUMPC");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Robin")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Robin-SUMPC");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Maxwell")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Maxwell");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Superman")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Superman-SUMPC");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Green Lantern")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Green_Lantern_Hal_Jordan");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Jeve Stob")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Andrew_Warthen");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Joker")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Joker_Dc");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Penguin")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Villain_Female");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Storm trooper")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Nathan_Hernandez_SnU");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Brady")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Brady_Houck");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Knight")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Knight_(Male)");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Sandman")
-            {
-                player1Sprite = Resources.Load<Sprite>("DC/Sandman");
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "Scottish")
+            Text text = transform.Find("Player1/Player1Text").GetComponent<Text>();
+
+            if (TwoPlayerNextButtonCharacterSelection.player1Name == "Scottish")
             {
                 Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/scottishidle");
 
                 player1Sprite = Player1MoveableSprite[0];
 
                 Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+                Player1Animator.SetBool("Scottish", true);
+                Player1Animator.SetBool("English", false);
                 Player1Animator.enabled = true;
-                //Player1Animator.SetBool("Selected", true);
 
                 TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
+                text.text = "Scottish";
+            }
+            else if (TwoPlayerNextButtonCharacterSelection.player1Name == "English")
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+
+                player1Sprite = Player1MoveableSprite[0];
+
+                Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+                Player1Animator.SetBool("Scottish", false);
+                Player1Animator.SetBool("English", true);
+                Player1Animator.enabled = true;
+
+                TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
+                text.text = "English";
             }
 
-            Image Image = transform.Find("Player1/playerImage").GetComponent<Image>();
-            Image.sprite = player1Sprite;
-            TwoPlayerNextButtonCharacterSelection.player1Image = player1Sprite;
-
-            Text text = transform.Find("Player1/Player1Text").GetComponent<Text>();
-            text.text = TwoPlayerNextButtonCharacterSelection.player1Name;
+            TwoPlayerNextButtonCharacterSelection.player1Name = text.text;
         }
     }
 }

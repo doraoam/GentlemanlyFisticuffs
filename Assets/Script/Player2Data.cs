@@ -27,19 +27,22 @@ public class Player2Data : MonoBehaviour
         }
         else
         {
-            player2Name.text = "Enemy";
-            curAction = "nothing";
+            player2Name = GameObject.FindGameObjectWithTag("Player2Name").GetComponent<Text>();
         }
-        
-        showAction.text = "Nothing";
 
+        curAction = "nothing";
+        showAction.text = "Nothing";
         curHealth = maxHealth;
         healthSlider.value = curHealth;
         isDead = false;
 
-        if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+        if (player2Name.text == "Scottish")
         {
-            player2Animator = GameObject.FindGameObjectWithTag("Player2Animator").GetComponent<Animator>();
+            player2Animator = GameObject.FindGameObjectWithTag("Player2Scottish").GetComponent<Animator>();
+        }
+        else if (player2Name.text == "English")
+        {
+            player2Animator = GameObject.FindGameObjectWithTag("Player2English").GetComponent<Animator>();
         }
     }
 

@@ -21,7 +21,7 @@ public class Player1Data : MonoBehaviour
     // Use this for initialization
     public void Awake()
     {
-        if (NextButtonCharacterSelection.playerImage)
+        if (NextButtonCharacterSelection.playerName != null)
         {
             player1Name.text = NextButtonCharacterSelection.playerName;
         }else if(TwoPlayerNextButtonCharacterSelection.isTwoPlayer){
@@ -29,7 +29,7 @@ public class Player1Data : MonoBehaviour
         }
         else
         {
-            player1Name.text = "batman";
+            player1Name = GameObject.FindGameObjectWithTag("Player1Name").GetComponent<Text>();
         }
 
         curAction = "nothing";
@@ -38,9 +38,11 @@ public class Player1Data : MonoBehaviour
         healthSlider.value = curHealth;
         isDead = false;
 
-        if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
+        if (player1Name.text == "Scottish")
         {
-            player1Animator = GameObject.FindGameObjectWithTag("Player1Animator").GetComponent<Animator>();
+            player1Animator = GameObject.FindGameObjectWithTag("Player1Scottish").GetComponent<Animator>();
+        }else if(player1Name.text == "English"){
+            player1Animator = GameObject.FindGameObjectWithTag("Player1English").GetComponent<Animator>();
         }
     }
 
