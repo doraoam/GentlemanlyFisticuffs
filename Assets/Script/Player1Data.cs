@@ -9,14 +9,14 @@ public class Player1Data : MonoBehaviour
     
     public Animator player1Animator;
 
-    public float maxHealth = 100;
-    public float curHealth;
+   
+    public  int curHealth=400;
 
     public Slider healthSlider;
 
     public static string curAction;
 
-    public static bool isDead;
+    public Fighting fight;
 
     // Use this for initialization
     public void Awake()
@@ -34,9 +34,9 @@ public class Player1Data : MonoBehaviour
 
         curAction = "nothing";
         showAction.text = "Nothing";
-        curHealth = maxHealth;
+        
         healthSlider.value = curHealth;
-        isDead = false;
+        
 
         if (player1Name.text == "Scottish")
         {
@@ -44,186 +44,115 @@ public class Player1Data : MonoBehaviour
         }else if(player1Name.text == "English"){
             player1Animator = GameObject.FindGameObjectWithTag("Player1English").GetComponent<Animator>();
         }
+        
+    }
+   // void Update()
+  // {
+      // WaitForAnimation(player1Animator.animation);
+  //  }
+    public  void SetDead(){
+
+        curAction="Death";
+        GameOver.isOver = true;
     }
 
-    // Update is called once per frame
-    void Update()
+   public void action(int x)
     {
-        if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
+        if (x==1)
         {
-            if (!player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation") && !player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation"))
-            {
-                controller();
-            }
-            else
-            {
-                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation"))
-                {
-                    player1Animator.SetBool("Bluffed", false);
-                }
+            
 
-                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation"))
-                {
-                    player1Animator.SetBool("Punched", false);
-                }
-            }
-        }
-        else
-        {
-            controller();
-        }
-    }
-
-    void controller()
-    {
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetButtonDown("Attack"))
-        {
-            curAction = "attack";
-            showAction.text = "Attack";
-
-            if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-            {
                 player1Animator.SetBool("Punch", true);
                 player1Animator.SetBool("Block", false);
                 player1Animator.SetBool("Bluff", false);
+                player1Animator.SetBool("Punched", false);
+                player1Animator.SetBool("Bluffed", false);
                 player1Animator.speed = 1f;
-            }
+                Debug.Log("hit");
+           
         }
-        else if (Input.GetKeyDown(KeyCode.S) || Input.GetButtonDown("Defend"))
+        else if (x==2)
         {
-            curAction = "defend";
-            showAction.text = "Defend";
+           
 
-            if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-            {
+
                 player1Animator.SetBool("Punch", false);
                 player1Animator.SetBool("Block", true);
                 player1Animator.SetBool("Bluff", false);
+                player1Animator.SetBool("Punched", false);
+                player1Animator.SetBool("Bluffed", false);
                 player1Animator.speed = 1f;
-            }
+            
         }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetButtonDown("Bluff"))
+        else if (x==3)
         {
-            curAction = "bluff";
-            showAction.text = "Bluff";
+            
 
-            if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-            {
+
+           
                 player1Animator.SetBool("Punch", false);
                 player1Animator.SetBool("Block", false);
                 player1Animator.SetBool("Bluff", true);
+                player1Animator.SetBool("Punched", false);
+                player1Animator.SetBool("Bluffed", false);
+            
                 player1Animator.speed = 1f;
-            }
+            
         }
-        else if (Player2Data.curAction == "Death" && Player2Data.isDead)
-        {
-            curAction = "nothing";
-            showAction.text = "Winner!";
-
-            if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-            {
-                player1Animator.SetBool("Punch", false);
-                player1Animator.SetBool("Block", false);
-                player1Animator.SetBool("Bluff", false);
-                player1Animator.speed = 1f;
-            }
-        }
-        else
-        {
-            curAction = "nothing";
-
-            if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-            {
-                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
-                {
-                    player1Animator.SetBool("Punch", false);
-                }
-
-                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
-                {
-                    player1Animator.SetBool("Block", false);
-                }
-
-                if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffAnimation"))
-                {
-                    player1Animator.SetBool("Bluff", false);
-                }
-            }
-        }
-    }
-
-    public void TakeDamage(int amount,string action)
-    {
-        if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
-        {
-            if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
-            {
-                player1Animator.SetBool("Punch", false);
-                getDamge(action);
-            }
-            else if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
-            {
-                player1Animator.SetBool("Block", false);
-                getDamge(action);
-            }
-            else if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffAnimation"))
-            {
-                player1Animator.SetBool("Bluff", false);
-                getDamge(action);
-            }
-            else
-            {
-                getDamge(action);
-            }
-        }
-        else
-        {
-            if (action == "attack")
-            {
-                curAction = "Punched";
-            }
-            else if (action == "bluff")
-            {
-                curAction = "Bluffed";
-            }
-
-            if (curHealth <= 0 && !isDead)
-            {
-                Death();
-            }
-        }
-
-        curHealth -= amount;
-
-        healthSlider.value = curHealth;
-    }
-
-    public void getDamge(string action)
-    {
-        if (action == "attack")
+               else if (x == 4)
         {
             player1Animator.SetBool("Punched", true);
-
-            curAction = "Punched";
-        }
-        else if (action == "bluff")
+            player1Animator.SetBool("Block", false);
+            player1Animator.SetBool("Bluff", false);
+            player1Animator.SetBool("Punch", false);
+            player1Animator.SetBool("Bluffed", false);
+            }
+        else if (x == 5)
         {
+            player1Animator.SetBool("Block", false);
+            player1Animator.SetBool("Punch", false);
+            player1Animator.SetBool("Bluff", false);
+            player1Animator.SetBool("Punched", false);
             player1Animator.SetBool("Bluffed", true);
-
-            curAction = "Bluffed";
         }
-
-        if (curHealth <= 0 && !isDead)
+        else if (Player1Data.curAction == "Death")
         {
-            Death();
+            SetDead();
+
+
+            
+                player1Animator.SetBool("Punch", false);
+                player1Animator.SetBool("Block", false);
+                player1Animator.SetBool("Bluff", false);
+                player1Animator.SetBool("Punched", false);
+                player1Animator.SetBool("Bluffed", false);
+                player1Animator.speed = 1f;
+            
         }
+        else
+        {
+            
+
+            
+                 player1Animator.SetBool("Punch", false);
+                player1Animator.SetBool("Block", false);
+                player1Animator.SetBool("Bluff", false);
+                player1Animator.SetBool("Punched", false);
+                player1Animator.SetBool("Bluffed", false);
+                
+            }
+        
+        }
+
+
+   //private IEnumerator WaitForAnimation(Animation animation)
+   //{
+   //    do
+   //    {
+   //        yield return null;
+   //    } while (animation.isPlaying);
+   //}
     }
 
-    public void Death()
-    {
-        isDead = true;
-        curAction = "Death";
 
-        GameOver.isOver = true;
-    }
-}
+    

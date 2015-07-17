@@ -62,7 +62,7 @@ public class ChooseEnermy : MonoBehaviour
                 text.text = "English";
             }
 
-            NextButtonCharacterSelection.player2Name = text.text;
+             text.text=NextButtonCharacterSelection.player2Name ;
         }
     }
 }

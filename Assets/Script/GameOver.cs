@@ -25,11 +25,11 @@ public class GameOver : MonoBehaviour {
         {
             gameOverCanvas.SetActive(true);
 
-            if (Player1Data.curAction == "Death" || Player1Data.isDead)
+            if (Player1Data.curAction == "Death" )
             {
                 resultText.text = "Player 2 win!!";
             }
-            else if (Player2Data.curAction == "Death" || Player2Data.isDead)
+            else if (Player2Data.curAction == "Death" )
             {
                 resultText.text = "Player 1 win!!";
             }

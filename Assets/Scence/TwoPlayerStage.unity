@@ -467,7 +467,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
-  m_StereoMirrorMode: 0
 --- !u!4 &198064269
 Transform:
   m_ObjectHideFlags: 0
@@ -2869,6 +2868,7 @@ GameObject:
   - 222: {fileID: 1345601925}
   - 114: {fileID: 1345601924}
   - 114: {fileID: 1345601923}
+  - 114: {fileID: 1345601926}
   m_Layer: 5
   m_Name: ResultText
   m_TagString: Untagged
@@ -2899,7 +2899,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1345601921}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 965d624b09c3aac47b9d703b894b87ba, type: 3}
   m_Name: 
@@ -2938,6 +2938,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1345601921}
+--- !u!114 &1345601926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1345601921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6d3c1507ad6ec4bb1d6418698128f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1771717458}
+  player2: {fileID: 2056983159}
+  stun1: 0
+  stun2: 0
+  p2random: 0
 --- !u!1 &1355110717
 GameObject:
   m_ObjectHideFlags: 0
@@ -4033,9 +4049,9 @@ MonoBehaviour:
   player1Name: {fileID: 1617057031}
   showAction: {fileID: 462279368}
   player1Animator: {fileID: 0}
-  maxHealth: 100
   curHealth: 0
   healthSlider: {fileID: 1573869943}
+  fight: {fileID: 1345601926}
 --- !u!4 &1771717459
 Transform:
   m_ObjectHideFlags: 0
@@ -4610,7 +4626,6 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
-  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &2025527202
 MonoBehaviour:
@@ -4747,7 +4762,7 @@ MonoBehaviour:
   player2Name: {fileID: 1355110719}
   showAction: {fileID: 365191240}
   player2Animator: {fileID: 0}
-  maxHealth: 100
+  fight: {fileID: 1345601926}
   curHealth: 0
   healthSlider: {fileID: 1840818213}
 --- !u!4 &2056983160
