@@ -12,6 +12,8 @@ TagManager:
   - Player2English
   - Player1Name
   - Player2Name
+  - Attack
+  - Bluff
   layers:
   - Default
   - TransparentFX

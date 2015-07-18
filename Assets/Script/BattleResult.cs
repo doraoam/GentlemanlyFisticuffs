@@ -4,79 +4,56 @@ using UnityEngine.UI;
 
 public class BattleResult : MonoBehaviour
 {
+    public Text resultText;
+
     GameObject player1;
     GameObject player2;
 
     Player1Data player1Data;
     Player2Data player2Data;
 
-    ArrayList actionPlayer1;
-    ArrayList actionPlayer2;
-
-    string player1Action;
-    string player2Action;
-
     // Use this for initialization
     void Awake()
     {
+        resultText.text = "result";
+
         player1 = GameObject.FindGameObjectWithTag("Player1Data");
         player2 = GameObject.FindGameObjectWithTag("Player2Data");
 
         player1Data = player1.GetComponent<Player1Data>();
         player2Data = player2.GetComponent<Player2Data>();
-
-        actionPlayer1 = new ArrayList();
-        actionPlayer2 = new ArrayList();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        addAction();
-
-        checkAction();
-    }
-
-    void addAction()
-    {
-        if (Player1Data.curAction != "nothing")
+        if (Player1Data.curAction != "Punched" || Player1Data.curAction != "Bluffed" || Player2Data.curAction != "Punched" || Player2Data.curAction != "Bluffed")
         {
-            actionPlayer1.Add(Player1Data.curAction);
-        }else if(Player2Data.curAction != "nothing"){
-            actionPlayer2.Add(Player2Data.curAction);
-        }
-    }
+            Debug.Log("Player 1 " + Player1Data.curAction + " " + "Player 2 " + Player2Data.curAction);
+            if (Player1Data.curAction == "attack" && Player2Data.curAction == "bluff" || Player1Data.curAction == "bluff" && Player2Data.curAction == "defend")
+            {
+                player2Data.TakeDamage(10, Player1Data.curAction);
 
-    void checkAction()
-    {
-        if (actionPlayer1.Count > 1 && actionPlayer2.Count > 1)
-        {
-            player1Action = (string)actionPlayer1[0];
-            player2Action = (string)actionPlayer2[0];
+                resultText.text = "Player 1 get point!";
+            }
+            else if (Player1Data.curAction == "bluff" && Player2Data.curAction == "attack" || Player1Data.curAction == "defend" && Player2Data.curAction == "bluff")
+            {
+                player1Data.TakeDamage(10, Player2Data.curAction);
 
-            if (player1Action == "attack" && player2Action == "bluff" || player1Action == "bluff" && player2Action == "defend")
-            {
-                Debug.Log(player1Action + " " + player2Action);
-                player2Data.TakeDamage(10, player1Action);
+                resultText.text = "Player 2 get point!";
             }
-            else if (player1Action == "bluff" && player2Action == "attack" || player1Action == "defend" && player2Action == "bluff")
+            else if (Player1Data.curAction == "attack" && Player2Data.curAction == "attack" || Player1Data.curAction == "bluff" && Player2Data.curAction == "bluff")
             {
-                Debug.Log(player1Action + " " + player2Action);
-                player1Data.TakeDamage(10, player2Action);
-            }
-            else if (player1Action == "attack" && player2Action == "attack" || player1Action == "bluff" && player2Action == "bluff")
-            {
-                Debug.Log(player1Action + " " + player2Action);
-                player1Data.TakeDamage(10, player2Action);
-                player2Data.TakeDamage(10, player1Action);
+                player1Data.TakeDamage(10, Player2Data.curAction);
+                player2Data.TakeDamage(10, Player1Data.curAction);
+
+                resultText.text = "Both get hurt";
             }
             else
             {
-                //resultText.text = "Nothing happen.";
-            }
 
-            actionPlayer1.RemoveAt(0);
-            actionPlayer2.RemoveAt(0);
+            }
         }
     }
+
 }

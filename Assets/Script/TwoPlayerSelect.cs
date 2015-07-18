@@ -61,7 +61,7 @@ public class TwoPlayerSelect : MonoBehaviour
                 text.text = "English";
             }
 
-            TwoPlayerNextButtonCharacterSelection.player2Name = text.text;
+            text.text = TwoPlayerNextButtonCharacterSelection.player2Name;
         }
     }
 }

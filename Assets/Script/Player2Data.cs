@@ -18,6 +18,9 @@ public class Player2Data : MonoBehaviour
 
     public static bool isDead;
 
+    public GameObject punch;
+    public GameObject bluff;
+
     // Use this for initialization
     public void Awake()
     {
@@ -47,7 +50,7 @@ public class Player2Data : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
         {
@@ -60,11 +63,17 @@ public class Player2Data : MonoBehaviour
                 {
                     if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
                     {
+                        player2Animator.SetBool("Punch", false);
+                        player2Animator.SetBool("Block", false);
+                        player2Animator.SetBool("Bluff", false);
                         player2Animator.SetBool("Bluffed", false);
                     }
 
                     if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation"))
                     {
+                        player2Animator.SetBool("Punch", false);
+                        player2Animator.SetBool("Block", false);
+                        player2Animator.SetBool("Bluff", false);
                         player2Animator.SetBool("Punched", false);
                     }
                 }
@@ -161,7 +170,8 @@ public class Player2Data : MonoBehaviour
             {
                 curAction = "attack";
                 showAction.text = "Attack";
-
+                GameObject punchHit = (GameObject)Instantiate(punch, new Vector3(215, 200, 0), Quaternion.identity);
+                Destroy(punchHit, 3);
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
                     player2Animator.SetBool("Punch", true);
@@ -187,7 +197,8 @@ public class Player2Data : MonoBehaviour
             {
                 curAction = "bluff";
                 showAction.text = "Bluff";
-
+                GameObject bluffHit = (GameObject)Instantiate(bluff, new Vector3(215, 200, 0), Quaternion.identity);
+                Destroy(bluffHit, 3);
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
                     player2Animator.SetBool("Punch", false);
@@ -249,30 +260,30 @@ public class Player2Data : MonoBehaviour
             if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchAnimation"))
             {
                 player2Animator.SetBool("Punch", false);
-                getDamge(action);
+                getDamage(action);
             }
             else if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
             {
                 player2Animator.SetBool("Block", false);
-                getDamge(action);
+                getDamage(action);
             }
             else if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffAnimation"))
             {
                 player2Animator.SetBool("Bluff", false);
-                getDamge(action);
+                getDamage(action);
             }
             else
             {
-                getDamge(action);
+                getDamage(action);
             }
         }
         else
         {
-            if (action == "attack")
+            if (action == "attack" && curAction != "defend")
             {
                 curAction = "Punched";
             }
-            else if (action == "bluff")
+            else if (action == "bluff" && curAction != "attack")
             {
                 curAction = "Bluffed";
             }
@@ -288,15 +299,15 @@ public class Player2Data : MonoBehaviour
         healthSlider.value = curHealth;
     }
 
-    public void getDamge(string action)
+    public void getDamage(string action)
     {
-        if (action == "attack")
+        if (action == "attack" && curAction != "defend")
         {
             player2Animator.SetBool("Punched", true);
 
             curAction = "Punched";
         }
-        else if (action == "bluff")
+        else if (action == "bluff" && curAction != "attack")
         {
             player2Animator.SetBool("Bluffed", true);
 

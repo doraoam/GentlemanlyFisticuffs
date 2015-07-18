@@ -15,6 +15,9 @@ public class NextButtonCharacterSelection : MonoBehaviour
     public static bool player1UseAnimation;
     public static bool player2UseAnimation;
 
+    public static Sprite backgroundImage;
+    public static string backgroundName;
+
     void Awake()
     {
 

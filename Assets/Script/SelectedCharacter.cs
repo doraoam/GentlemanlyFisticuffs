@@ -19,7 +19,7 @@ public class SelectedCharacter : MonoBehaviour
  
     void Awake()
     {
-        if (NextButtonCharacterSelection.playerName != null)
+        if (NextButtonCharacterSelection.player2Name != null)
         {
             chooseCharacter(NextButtonCharacterSelection.playerName,1);
 
@@ -27,9 +27,9 @@ public class SelectedCharacter : MonoBehaviour
         }
         else
         {
-            chooseCharacter("English", 1);
+            chooseCharacter("Scottish", 1);
 
-            chooseCharacter("English", 2);
+            chooseCharacter("Scottish", 2);
         }
     }
 

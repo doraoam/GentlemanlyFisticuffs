@@ -48,13 +48,18 @@
   <ItemGroup>
      <Compile Include="Assets\IsPunching.cs" />
      <Compile Include="Assets\Sasu testing\Scott.cs" />
+     <Compile Include="Assets\Script\ActionController.cs" />
+     <Compile Include="Assets\Script\BackgroundController.cs" />
      <Compile Include="Assets\Script\BattleResult.cs" />
+     <Compile Include="Assets\Script\CastingBar.cs" />
      <Compile Include="Assets\Script\Character.cs" />
      <Compile Include="Assets\Script\CharacterName.cs" />
+     <Compile Include="Assets\Script\CharacterTrigger.cs" />
      <Compile Include="Assets\Script\ChooseCharacter.cs" />
      <Compile Include="Assets\Script\ChooseEnermy.cs" />
      <Compile Include="Assets\Script\ChoosePlayer.cs" />
      <Compile Include="Assets\Script\ExitButton.cs" />
+     <Compile Include="Assets\Script\Fireball.cs" />
      <Compile Include="Assets\Script\GUIAspectRatioScale.cs" />
      <Compile Include="Assets\Script\GameOver.cs" />
      <Compile Include="Assets\Script\HealthBar.cs" />
@@ -72,6 +77,8 @@
      <Compile Include="Assets\Script\RandomCharacter.cs" />
      <Compile Include="Assets\Script\ReplayButton.cs" />
      <Compile Include="Assets\Script\SelectedCharacter.cs" />
+     <Compile Include="Assets\Script\Spell.cs" />
+     <Compile Include="Assets\Script\StageSelect.cs" />
      <Compile Include="Assets\Script\StartFight.cs" />
      <Compile Include="Assets\Script\Timer.cs" />
      <Compile Include="Assets\Script\TwoPlayer.cs" />
@@ -83,8 +90,6 @@
      <Compile Include="Assets\Script\TwoPlayerStageCharacter.cs" />
      <Compile Include="Assets\Script\UIManagerScript.cs" />
      <Compile Include="Assets\UIManagerScript.cs" />
-     <None Include="Assets\Plugins\release_history.txt" />
-     <None Include="Assets\Plugins\Photon3Unity3D.xml" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -94,19 +99,9 @@
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
- <Reference Include="Photon3Unity3D">
- <HintPath>C:/Users/Admin/Documents/Gentlemanly Fisticuffs/Assets/Plugins/Photon3Unity3D.dll</HintPath>
- </Reference>
- <Reference Include="websocket-sharp">
- <HintPath>C:/Users/Admin/Documents/Gentlemanly Fisticuffs/Assets/Plugins/WebSocket/websocket-sharp.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
-      <Project>{C90FE7E0-07C3-C5DD-89D0-4D48D43789FE}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

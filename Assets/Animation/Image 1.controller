@@ -172,6 +172,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Punch
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Punched
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110247724}
   m_Solo: 0
@@ -218,6 +221,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 2
     m_ConditionEvent: Block
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Bluffed
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110247724}
   m_Solo: 0
@@ -263,6 +269,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: Bluff
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: Punched
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110247724}
@@ -541,7 +550,7 @@ AnimatorStateMachine:
       first: {fileID: 110732676}
       second: []
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 36, y: 96, z: 0}
+  m_AnyStatePosition: {x: 216, y: 96, z: 0}
   m_EntryPosition: {x: 372, y: -48, z: 0}
   m_ExitPosition: {x: 360, y: -108, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -52,7 +52,7 @@ public class TwoPlayerChooseCharacter : MonoBehaviour
                 TwoPlayerNextButtonCharacterSelection.isTwoPlayer = true;
             }
 
-            Application.LoadLevel("TwoPlayerStage");
+            Application.LoadLevel("StageSelect");
         }
     }
 

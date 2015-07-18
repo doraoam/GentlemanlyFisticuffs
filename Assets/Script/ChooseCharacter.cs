@@ -47,7 +47,7 @@ public class ChooseCharacter : MonoBehaviour
         {
             //StartCoroutine(nextStage());
 
-            Application.LoadLevel("test");
+            Application.LoadLevel("StageSelect");
         }
     }
 
