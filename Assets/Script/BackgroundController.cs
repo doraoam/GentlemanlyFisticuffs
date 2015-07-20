@@ -25,6 +25,7 @@ public class BackgroundController : MonoBehaviour
         else
         {
             image.sprite = spriteRenderer.sprite;
+            
             //Debug.Log(spriteRenderer.sprite.name + " " + image.sprite.name, this);
 
             //TwoPlayerNextButtonCharacterSelection.backgroundImage;
