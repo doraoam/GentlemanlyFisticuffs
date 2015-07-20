@@ -83,80 +83,34 @@ public class Player2Data : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
             {
-                curAction = "attack";
-                showAction.text = "Attack";
-
-                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                if (!player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation") && !player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
                 {
-                    player2Animator.SetBool("Punch", true);
-                    player2Animator.SetBool("Block", false);
-                    player2Animator.SetBool("Bluff", false);
-                    player2Animator.speed = 1f;
+                    controller();
                 }
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                curAction = "defend";
-                showAction.text = "Defend";
-
-                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+                else
                 {
-                    player2Animator.SetBool("Punch", false);
-                    player2Animator.SetBool("Block", true);
-                    player2Animator.SetBool("Bluff", false);
-                    player2Animator.speed = 1f;
-                }
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
+                    {
+                        player2Animator.SetBool("Punch", false);
+                        player2Animator.SetBool("Block", false);
+                        player2Animator.SetBool("Bluff", false);
+                        player2Animator.SetBool("Bluffed", false);
+                    }
 
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                curAction = "bluff";
-                showAction.text = "Bluff";
-
-                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                {
-                    player2Animator.SetBool("Punch", false);
-                    player2Animator.SetBool("Block", false);
-                    player2Animator.SetBool("Bluff", true);
-                    player2Animator.speed = 1f;
-                }
-            }
-            else if (Player1Data.curAction == "Death" && Player1Data.isDead)
-            {
-                curAction = "nothing";
-                showAction.text = "Winner!";
-
-                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                {
-                    player2Animator.SetBool("Punch", false);
-                    player2Animator.SetBool("Block", false);
-                    player2Animator.SetBool("Bluff", false);
-                    player2Animator.speed = 1f;
+                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation"))
+                    {
+                        player2Animator.SetBool("Punch", false);
+                        player2Animator.SetBool("Block", false);
+                        player2Animator.SetBool("Bluff", false);
+                        player2Animator.SetBool("Punched", false);
+                    }
                 }
             }
             else
             {
-                curAction = "nothing";
-
-                if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
-                {
-                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchAnimation"))
-                    {
-                        player2Animator.SetBool("Punch", false);
-                    }
-
-                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BlockAnimation"))
-                    {
-                        player2Animator.SetBool("Block", false);
-                    }
-
-                    if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffAnimation"))
-                    {
-                        player2Animator.SetBool("Bluff", false);
-                    }
-                }
+                controller();
             }
         }
     }
@@ -171,7 +125,7 @@ public class Player2Data : MonoBehaviour
                 curAction = "attack";
                 showAction.text = "Attack";
                 GameObject punchHit = (GameObject)Instantiate(punch, new Vector3(215, 200, 0), Quaternion.identity);
-                Destroy(punchHit, 3);
+                Destroy(punchHit, 1);
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
                     player2Animator.SetBool("Punch", true);
@@ -198,7 +152,7 @@ public class Player2Data : MonoBehaviour
                 curAction = "bluff";
                 showAction.text = "Bluff";
                 GameObject bluffHit = (GameObject)Instantiate(bluff, new Vector3(215, 200, 0), Quaternion.identity);
-                Destroy(bluffHit, 3);
+                Destroy(bluffHit, 1);
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
                     player2Animator.SetBool("Punch", false);
@@ -233,6 +187,87 @@ public class Player2Data : MonoBehaviour
         }
         else
         {
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+            {
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchAnimation"))
+                {
+                    player2Animator.SetBool("Punch", false);
+                }
+
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BlockAnimation"))
+                {
+                    player2Animator.SetBool("Block", false);
+                }
+
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffAnimation"))
+                {
+                    player2Animator.SetBool("Bluff", false);
+                }
+            }
+        }
+    }
+
+    void controller()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            curAction = "attack";
+            showAction.text = "Attack";
+            GameObject punchHit = (GameObject)Instantiate(punch, new Vector3(215, 200, 0), Quaternion.identity);
+            Destroy(punchHit, 1);
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+            {
+                player2Animator.SetBool("Punch", true);
+                player2Animator.SetBool("Block", false);
+                player2Animator.SetBool("Bluff", false);
+                player2Animator.speed = 1f;
+            }
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            curAction = "defend";
+            showAction.text = "Defend";
+
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+            {
+                player2Animator.SetBool("Punch", false);
+                player2Animator.SetBool("Block", true);
+                player2Animator.SetBool("Bluff", false);
+                player2Animator.speed = 1f;
+            }
+
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            curAction = "bluff";
+            showAction.text = "Bluff";
+            GameObject bluffHit = (GameObject)Instantiate(bluff, new Vector3(215, 200, 0), Quaternion.identity);
+            Destroy(bluffHit, 1);
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+            {
+                player2Animator.SetBool("Punch", false);
+                player2Animator.SetBool("Block", false);
+                player2Animator.SetBool("Bluff", true);
+                player2Animator.speed = 1f;
+            }
+        }
+        else if (Player1Data.curAction == "Death" && Player1Data.isDead)
+        {
+            curAction = "nothing";
+            showAction.text = "Winner!";
+
+            if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
+            {
+                player2Animator.SetBool("Punch", false);
+                player2Animator.SetBool("Block", false);
+                player2Animator.SetBool("Bluff", false);
+                player2Animator.speed = 1f;
+            }
+        }
+        else
+        {
+            curAction = "nothing";
+
             if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
             {
                 if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchAnimation"))

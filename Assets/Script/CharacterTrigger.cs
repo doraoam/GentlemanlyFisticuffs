@@ -26,22 +26,22 @@ public class CharacterTrigger : MonoBehaviour
         {
             if (playerNumber == 1)
             {
-                player1Data.TakeDamage(10, "attack");  
+                player1Data.TakeDamage(5, "attack");  
             }
             else
             {
-                player2Data.TakeDamage(10, "attack");
+                player2Data.TakeDamage(5, "attack");
             }
         }
         else if (col.CompareTag("Bluff"))
         {
             if (playerNumber == 1)
             {
-                player1Data.TakeDamage(10, "bluff");
+                player1Data.TakeDamage(5, "bluff");
             }
             else
             {
-                player2Data.TakeDamage(10, "bluff");
+                player2Data.TakeDamage(5, "bluff");
             }
         }
     }

@@ -90,7 +90,8 @@ public class Player1Data : MonoBehaviour
             curAction = "attack";
             showAction.text = "Attack";
             GameObject punchHit = (GameObject)Instantiate(punch,new Vector3(415,200,0), Quaternion.identity);
-            Destroy(punchHit, 3);
+            Destroy(punchHit, 1);
+            Debug.Log("punching");
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
                 player1Animator.SetBool("Punch", true);
@@ -118,7 +119,7 @@ public class Player1Data : MonoBehaviour
             showAction.text = "Bluff";
 
             GameObject bluffHit = (GameObject)Instantiate(bluff, new Vector3(415, 200, 0), Quaternion.identity);
-            Destroy(bluffHit,3);
+            Destroy(bluffHit,1);
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
                 player1Animator.SetBool("Punch", false);
