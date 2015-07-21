@@ -91,7 +91,7 @@ public class Player1Data : MonoBehaviour
             showAction.text = "Attack";
             GameObject punchHit = (GameObject)Instantiate(punch,new Vector3(415,200,0), Quaternion.identity);
             Destroy(punchHit, 1);
-            Debug.Log("punching");
+
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
                 player1Animator.SetBool("Punch", true);

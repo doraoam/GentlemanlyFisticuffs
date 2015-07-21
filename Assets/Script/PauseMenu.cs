@@ -38,6 +38,7 @@ public class PauseMenu : MonoBehaviour
 
     public void LevelSelect()
     {
+        isPaused = false;
         Destroy(GameObject.FindGameObjectWithTag("Background"));
         Application.LoadLevel("StageSelect");
     }

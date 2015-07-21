@@ -7,6 +7,10 @@ public class RandomCharacter : MonoBehaviour
     string player1Name;
     string player2Name;
 
+    string stageName;
+    Image stageImage;
+    Sprite stageSprite;
+
     Sprite sprite;
     Sprite sprite2;
 
@@ -20,9 +24,9 @@ public class RandomCharacter : MonoBehaviour
     {
         string[] name = new string[] { "Scottish", "English" };
 
-        if (NextButtonCharacterSelection.playerName != "null")
+        if (NextButtonCharacterSelection.playerName != null)
         {
-
+            
         }
         else
         {
@@ -47,7 +51,7 @@ public class RandomCharacter : MonoBehaviour
 
         NextButtonCharacterSelection.enablePlayer2 = false;
         
-        Application.LoadLevel("test");
+        Application.LoadLevel("StageSelect");
     }
 
     void chooseCharacter(string name,int playerNumber)
@@ -120,6 +124,48 @@ public class RandomCharacter : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        Application.LoadLevel("test");
+        Application.LoadLevel("StageSelect");
+    }
+
+    public void stageOnClick()
+    {
+        string[] stage = new string[] { "Scotland", "England", "IrishPub" };
+        stageName = stage[Random.Range(0, stage.Length)];
+        
+        if (stageName == "Scotland")
+        {
+            stageSprite = Resources.Load<Sprite>("Background/Scot/BGScot1");
+        }
+        else if (stageName == "England")
+        {
+            stageSprite = Resources.Load<Sprite>("Background/English/BGEnglish1");
+        }
+        else
+        {
+            stageSprite = Resources.Load<Sprite>("Background/Irish/irirsPub1");
+        }
+
+        GameObject stageBackground = new GameObject();
+        stageBackground.transform.tag = "Background";
+
+        SpriteRenderer spriteRenderer = stageBackground.AddComponent<SpriteRenderer>();
+        spriteRenderer.sprite = stageSprite;
+
+        DontDestroyOnLoad(stageBackground);
+
+        if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer)
+        {
+            TwoPlayerNextButtonCharacterSelection.backgroundImage = stageSprite;
+            TwoPlayerNextButtonCharacterSelection.backgroundName = stageName;
+
+            Application.LoadLevel("TwoPlayerStage");
+        }
+        else
+        {
+            NextButtonCharacterSelection.backgroundImage = stageSprite;
+            NextButtonCharacterSelection.backgroundName = stageName;
+
+            Application.LoadLevel("test");
+        }
     }
 }

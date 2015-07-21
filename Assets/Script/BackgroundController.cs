@@ -10,12 +10,14 @@ public class BackgroundController : MonoBehaviour
     void Awake()
     {
         image = gameObject.AddComponent<Image>();
+        //image.sprite = Resources.Load<Sprite>("Background/Scot/BGScot1");
+        //Debug.Log(image.sprite, this);
     }
        
     void Start()
     {    
         backgroundAnimator = GetComponent<Animator>();
-  
+   
         SpriteRenderer  spriteRenderer = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteRenderer>();
 
         if (spriteRenderer == null)
@@ -25,15 +27,17 @@ public class BackgroundController : MonoBehaviour
         else
         {
             image.sprite = spriteRenderer.sprite;
-            
             //Debug.Log(spriteRenderer.sprite.name + " " + image.sprite.name, this);
 
             //TwoPlayerNextButtonCharacterSelection.backgroundImage;
         }
-        /*
+    }
+
+    void LateUpdate()
+    {
         if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer)
         {
-          //  image.sprite = TwoPlayerNextButtonCharacterSelection.backgroundImage;
+            //  image.sprite = TwoPlayerNextButtonCharacterSelection.backgroundImage;
             if (TwoPlayerNextButtonCharacterSelection.backgroundName == "Scotland")
             {
                 //image = (Image)Resources.Load("Background/Scot/BGScot1.png");
@@ -50,9 +54,9 @@ public class BackgroundController : MonoBehaviour
                 backgroundAnimator.SetBool("Iris", true);
             }
         }
-        else 
+        else
         {
-           // image.sprite = NextButtonCharacterSelection.backgroundImage;
+            // image.sprite = NextButtonCharacterSelection.backgroundImage;
             if (NextButtonCharacterSelection.backgroundName == "Scotland")
             {
                 //image = (Image)Resources.Load("Background/Scot/BGScot1.png");
@@ -69,6 +73,5 @@ public class BackgroundController : MonoBehaviour
                 backgroundAnimator.SetBool("Iris", true);
             }
         }
-          */  
     }
 }

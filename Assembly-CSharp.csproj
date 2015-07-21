@@ -51,7 +51,6 @@
      <Compile Include="Assets\Script\ActionController.cs" />
      <Compile Include="Assets\Script\BackgroundController.cs" />
      <Compile Include="Assets\Script\BattleResult.cs" />
-     <Compile Include="Assets\Script\CastingBar.cs" />
      <Compile Include="Assets\Script\Character.cs" />
      <Compile Include="Assets\Script\CharacterName.cs" />
      <Compile Include="Assets\Script\CharacterTrigger.cs" />
@@ -77,7 +76,6 @@
      <Compile Include="Assets\Script\RandomCharacter.cs" />
      <Compile Include="Assets\Script\ReplayButton.cs" />
      <Compile Include="Assets\Script\SelectedCharacter.cs" />
-     <Compile Include="Assets\Script\Spell.cs" />
      <Compile Include="Assets\Script\StageSelect.cs" />
      <Compile Include="Assets\Script\StartFight.cs" />
      <Compile Include="Assets\Script\Timer.cs" />

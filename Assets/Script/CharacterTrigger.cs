@@ -22,26 +22,29 @@ public class CharacterTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Attack"))
+        if (GameOver.isOver != true)
         {
-            if (playerNumber == 1)
+            if (col.CompareTag("Attack"))
             {
-                player1Data.TakeDamage(5, "attack");  
+                if (playerNumber == 1)
+                {
+                    player1Data.TakeDamage(5, "attack");
+                }
+                else
+                {
+                    player2Data.TakeDamage(5, "attack");
+                }
             }
-            else
+            else if (col.CompareTag("Bluff"))
             {
-                player2Data.TakeDamage(5, "attack");
-            }
-        }
-        else if (col.CompareTag("Bluff"))
-        {
-            if (playerNumber == 1)
-            {
-                player1Data.TakeDamage(5, "bluff");
-            }
-            else
-            {
-                player2Data.TakeDamage(5, "bluff");
+                if (playerNumber == 1)
+                {
+                    player1Data.TakeDamage(5, "bluff");
+                }
+                else
+                {
+                    player2Data.TakeDamage(5, "bluff");
+                }
             }
         }
     }
