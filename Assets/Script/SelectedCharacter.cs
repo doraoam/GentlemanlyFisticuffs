@@ -109,9 +109,42 @@ public class SelectedCharacter : MonoBehaviour
                 NextButtonCharacterSelection.player2UseAnimation = true;
             }
         }
-        else
+        else if (name == "Irish")
         {
+            if (playerNumber == 1)
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/irkkuidle2");
 
+                playerSprite = Player1MoveableSprite[0];
+
+                playerImage = GameObject.Find("Player1/Character/Irish").GetComponent<Image>();
+                playerImage.enabled = true;
+
+                playerAnimator = GameObject.Find("Player1/Character/Irish").GetComponent<Animator>();
+                playerAnimator.enabled = true;
+
+                playerText = GameObject.Find("Player1/Player1Name").GetComponent<Text>();
+                playerText.text = "Irish";
+
+                NextButtonCharacterSelection.player1UseAnimation = true;
+            }
+            else
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/irkkuidle2");
+
+                enermySprite = Player2MoveableSprite[0];
+
+                enermyImage = GameObject.Find("Player2/Character/Irish").GetComponent<Image>();
+                enermyImage.enabled = true;
+
+                enermyAnimator = GameObject.Find("Player2/Character/Irish").GetComponent<Animator>();
+                enermyAnimator.enabled = true;
+
+                enermyText = GameObject.Find("Player2/Player2Name").GetComponent<Text>();
+                enermyText.text = "Irish";
+
+                NextButtonCharacterSelection.player2UseAnimation = true;
+            }
         }
     }
 }

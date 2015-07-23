@@ -18,7 +18,7 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
 
     public void onClickRandom()
     {
-        string[] name = new string[] { "Scottish", "English" };
+        string[] name = new string[] { "Scottish", "English", "Irish" };
 
         if (TwoPlayerNextButtonCharacterSelection.player1Name != null)
         {
@@ -68,6 +68,7 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
                 Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
                 Player1Animator.SetBool("Scottish", true);
                 Player1Animator.SetBool("English", false);
+                Player1Animator.SetBool("Irish", false);
                 Player1Animator.enabled = true;
 
                 TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
@@ -81,6 +82,7 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
                 Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
                 Player2Animator.SetBool("Scottish", true);
                 Player2Animator.SetBool("English", false);
+                Player2Animator.SetBool("Irish", false);
                 Player2Animator.enabled = true;
 
                 TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
@@ -97,6 +99,7 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
                 Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
                 Player1Animator.SetBool("Scottish", false);
                 Player1Animator.SetBool("English", true);
+                Player1Animator.SetBool("Irish", false);
                 Player1Animator.enabled = true;
 
                 TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
@@ -110,14 +113,42 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
                 Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
                 Player2Animator.SetBool("Scottish", false);
                 Player2Animator.SetBool("English", true);
+                Player2Animator.SetBool("Irish", false);
                 Player2Animator.enabled = true;
 
                 TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
             }
         }
-        else
+        else if (name == "Irish")
         {
+            if (playerNumber == 1)
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/irkkuidle2");
 
+                sprite = Player1MoveableSprite[0];
+
+                Player1Animator = GameObject.Find("Player1/playerImage").GetComponent<Animator>();
+                Player1Animator.SetBool("Scottish", false);
+                Player1Animator.SetBool("English", false);
+                Player1Animator.SetBool("Irish", true);
+                Player1Animator.enabled = true;
+
+                TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
+            }
+            else
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/irkkuidle2");
+
+                sprite = Player2MoveableSprite[0];
+
+                Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
+                Player2Animator.SetBool("Scottish", false);
+                Player2Animator.SetBool("English", false);
+                Player2Animator.SetBool("Irish", true);
+                Player2Animator.enabled = true;
+
+                TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
+            }
         }
     }
 

@@ -47,6 +47,10 @@ public class Player2Data : MonoBehaviour
         {
             player2Animator = GameObject.FindGameObjectWithTag("Player2English").GetComponent<Animator>();
         }
+        else if (player2Name.text == "Irish")
+        {
+            player2Animator = GameObject.FindGameObjectWithTag("Player2Irish").GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame

@@ -42,6 +42,7 @@ public class ChooseEnermy : MonoBehaviour
                 Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
                 Player2Animator.SetBool("Scottish", true);
                 Player2Animator.SetBool("English",false);
+                Player2Animator.SetBool("Irish", false);
                 Player2Animator.enabled = true;
 
                 NextButtonCharacterSelection.player2UseAnimation = true;
@@ -56,10 +57,26 @@ public class ChooseEnermy : MonoBehaviour
                 Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
                 Player2Animator.SetBool("Scottish",false);
                 Player2Animator.SetBool("English", true);
+                Player2Animator.SetBool("Irish", false);
                 Player2Animator.enabled = true;
 
                 NextButtonCharacterSelection.player2UseAnimation = true;
                 text.text = "English";
+            }
+            else if (NextButtonCharacterSelection.playerName == "Irish")
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/irkkuidle2");
+
+                player2Sprite = Player2MoveableSprite[0];
+
+                Player2Animator = GameObject.Find("Player2/playerImage").GetComponent<Animator>();
+                Player2Animator.SetBool("Scottish", false);
+                Player2Animator.SetBool("English", false);
+                Player2Animator.SetBool("Irish", true);
+                Player2Animator.enabled = true;
+
+                NextButtonCharacterSelection.player2UseAnimation = true;
+                text.text = "Irish";
             }
 
             text.text = NextButtonCharacterSelection.player2Name;

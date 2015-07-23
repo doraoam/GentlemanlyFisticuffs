@@ -108,9 +108,42 @@ public class TwoPlayerStageCharacter : MonoBehaviour
                 TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
             }
         }
-        else
+        else if (name == "Irish")
         {
+            if (playerNumber == 1)
+            {
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/irkkuidle2");
 
+                player1Sprite = Player1MoveableSprite[0];
+
+                playerImage = GameObject.Find("Player1/Character/Irish").GetComponent<Image>();
+                playerImage.enabled = true;
+
+                playerAnimator = GameObject.Find("Player1/Character/Irish").GetComponent<Animator>();
+                playerAnimator.enabled = true;
+
+                player1Text = GameObject.Find("Player1/Player1Name").GetComponent<Text>();
+                player1Text.text = "Irish";
+
+                TwoPlayerNextButtonCharacterSelection.player1UseAnimation = true;
+            }
+            else
+            {
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/irkkuidle2");
+
+                player2Sprite = Player2MoveableSprite[0];
+
+                player2Image = GameObject.Find("Player2/Character/Irish").GetComponent<Image>();
+                player2Image.enabled = true;
+
+                player2Animator = GameObject.Find("Player2/Character/Irish").GetComponent<Animator>();
+                player2Animator.enabled = true;
+
+                player2Text = GameObject.Find("Player2/Player2Name").GetComponent<Text>();
+                player2Text.text = "Irish";
+
+                TwoPlayerNextButtonCharacterSelection.player2UseAnimation = true;
+            }
         }
     }
 }

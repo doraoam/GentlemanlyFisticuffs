@@ -17,6 +17,8 @@ TagManager:
   - Background
   - loading
   - count
+  - Player1Irish
+  - Player2Irish
   layers:
   - Default
   - TransparentFX
