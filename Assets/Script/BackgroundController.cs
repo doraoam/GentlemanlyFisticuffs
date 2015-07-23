@@ -6,12 +6,24 @@ public class BackgroundController : MonoBehaviour
 {
     Image image;
     Animator backgroundAnimator;
-    
+
+    string backgroundName;
+
     void Awake()
     {
-        image = gameObject.AddComponent<Image>();
+        //image = gameObject.AddComponent<Image>();
+        image = GetComponent<Image>();
         //image.sprite = Resources.Load<Sprite>("Background/Scot/BGScot1");
         //Debug.Log(image.sprite, this);
+
+        if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer)
+        {
+            backgroundName = TwoPlayerNextButtonCharacterSelection.backgroundName;
+        }
+        else
+        {
+            backgroundName = NextButtonCharacterSelection.backgroundName;
+        }
     }
        
     void Start()
@@ -33,45 +45,23 @@ public class BackgroundController : MonoBehaviour
         }
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
-        if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer)
+        //  image.sprite = TwoPlayerNextButtonCharacterSelection.backgroundImage;
+        if (backgroundName == "Scotland")
         {
-            //  image.sprite = TwoPlayerNextButtonCharacterSelection.backgroundImage;
-            if (TwoPlayerNextButtonCharacterSelection.backgroundName == "Scotland")
-            {
-                //image = (Image)Resources.Load("Background/Scot/BGScot1.png");
-                backgroundAnimator.SetBool("Scot", true);
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.backgroundName == "England")
-            {
-                //image = (Image)Resources.Load("Background/English/BGEnglish1.png");
-                backgroundAnimator.SetBool("Eng", true);
-            }
-            else if (TwoPlayerNextButtonCharacterSelection.backgroundName == "IrishPub")
-            {
-                //image = (Image)Resources.Load("Background/Iris/IrirsPub1.png");
-                backgroundAnimator.SetBool("Iris", true);
-            }
+            //image = (Image)Resources.Load("Background/Scot/BGScot1.png");
+            backgroundAnimator.SetBool("Scot", true);
         }
-        else
+        else if (backgroundName == "England")
         {
-            // image.sprite = NextButtonCharacterSelection.backgroundImage;
-            if (NextButtonCharacterSelection.backgroundName == "Scotland")
-            {
-                //image = (Image)Resources.Load("Background/Scot/BGScot1.png");
-                backgroundAnimator.SetBool("Scot", true);
-            }
-            else if (NextButtonCharacterSelection.backgroundName == "England")
-            {
-                //image = (Image)Resources.Load("Background/English/BGEnglish1.png");
-                backgroundAnimator.SetBool("Eng", true);
-            }
-            else if (NextButtonCharacterSelection.backgroundName == "IrishPub")
-            {
-                //image = (Image)Resources.Load("Background/Iris/IrirsPub1.png");
-                backgroundAnimator.SetBool("Iris", true);
-            }
+            //image = (Image)Resources.Load("Background/English/BGEnglish1.png");
+            backgroundAnimator.SetBool("Eng", true);
+        }
+        else 
+        {
+            //image = (Image)Resources.Load("Background/Iris/IrirsPub1.png");
+            backgroundAnimator.SetBool("Iris", true);
         }
     }
 }

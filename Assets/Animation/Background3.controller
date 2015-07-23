@@ -204,7 +204,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BGenglishAnimation
+  m_Name: English
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -222,7 +222,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BGscottAnimation
+  m_Name: Scott
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -240,7 +240,7 @@ AnimatorState:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: IrirsPubAnimation
+  m_Name: Irish
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:

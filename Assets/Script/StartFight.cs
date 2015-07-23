@@ -5,24 +5,30 @@ public class StartFight : MonoBehaviour
 {
     public GameObject startFightCanvas;
 
-    public Animator startAnimator;
+    Animator startAnimator;
 
-    void start()
+    void Awake()
     {
-        startAnimator.SetBool("isStart", true);
+        startAnimator = GameObject.Find("Canvas/Count").GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!startAnimator.GetCurrentAnimatorStateInfo(0).IsName("CountController"))
+        if (!startAnimator.GetCurrentAnimatorStateInfo(0).IsName("Final"))
         {
-            //startAnimator.SetBool("isStart",false);
-            startFightCanvas.SetActive(false);
+            if (startAnimator.GetCurrentAnimatorStateInfo(0).IsName("Loading"))
+            {
+                startAnimator.SetBool("isStart", true);
+            }
+            else if (startAnimator.GetCurrentAnimatorStateInfo(0).IsName("CountController"))
+            {
+                startAnimator.SetBool("isStart", false);
+            }
         }
-        else
+        else if (startAnimator.GetCurrentAnimatorStateInfo(0).IsName("Final"))
         {
-            startFightCanvas.SetActive(true);
+            startFightCanvas.SetActive(false);
         }
     }
 }

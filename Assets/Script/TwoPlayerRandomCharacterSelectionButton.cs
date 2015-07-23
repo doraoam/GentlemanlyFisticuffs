@@ -52,7 +52,7 @@ public class TwoPlayerRandomCharacterSelectionButton : MonoBehaviour
             TwoPlayerNextButtonCharacterSelection.isTwoPlayer = true;
         }
 
-        Application.LoadLevel("TwoPlayerStage");
+        Application.LoadLevel("StageSelect");
     }
 
     void chooseCharacter(string name, int playerNumber)

@@ -13,7 +13,6 @@ public class StageSelect : MonoBehaviour
      
     }
 
-
     public void onClick()
     {
         Image image = GetComponent<Image>();
@@ -33,7 +32,7 @@ public class StageSelect : MonoBehaviour
         {
             TwoPlayerNextButtonCharacterSelection.backgroundImage = background;
             TwoPlayerNextButtonCharacterSelection.backgroundName = text.text;
-           
+            
             Application.LoadLevel("TwoPlayerStage");
         }
         else
