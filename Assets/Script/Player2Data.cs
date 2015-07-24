@@ -252,7 +252,8 @@ public class Player2Data : MonoBehaviour
         {
             curAction = "attack";
             showAction.text = "Attack";
-            GameObject punchHit = (GameObject)Instantiate(punch, new Vector3(215, 200, 0), Quaternion.identity);
+            Vector3 destination = new Vector3(player1.position.x, player1.position.y, 0);
+            GameObject punchHit = (GameObject)Instantiate(punch, destination, Quaternion.identity);
             Destroy(punchHit, 1);
             if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
             {
@@ -280,7 +281,8 @@ public class Player2Data : MonoBehaviour
         {
             curAction = "bluff";
             showAction.text = "Bluff";
-            GameObject bluffHit = (GameObject)Instantiate(bluff, new Vector3(215, 200, 0), Quaternion.identity);
+            Vector3 destination = new Vector3(player1.position.x, player1.position.y, 0);
+            GameObject bluffHit = (GameObject)Instantiate(bluff, destination, Quaternion.identity);
             Destroy(bluffHit, 1);
             if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
             {
