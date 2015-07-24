@@ -21,6 +21,8 @@ public class Player1Data : MonoBehaviour
     public GameObject punch;
     public GameObject bluff;
 
+    Transform player2;
+
     // Use this for initialization
     public void Awake()
     {
@@ -50,6 +52,37 @@ public class Player1Data : MonoBehaviour
         else if (player1Name.text == "Irish")
         {
             player1Animator = GameObject.FindGameObjectWithTag("Player1Irish").GetComponent<Animator>();
+        }
+
+        if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer)
+        {
+            if (TwoPlayerNextButtonCharacterSelection.player2Name == "Scottish")
+            {
+                player2 = GameObject.FindGameObjectWithTag("Player2Scottish").transform;
+            }
+            else if (TwoPlayerNextButtonCharacterSelection.player2Name == "English")
+            {
+                player2 = GameObject.FindGameObjectWithTag("Player2English").transform;
+            }
+            else if (TwoPlayerNextButtonCharacterSelection.player2Name == "Irish")
+            {
+                player2 = GameObject.FindGameObjectWithTag("Player2Irish").transform;
+            }
+        }
+        else
+        {
+            if (NextButtonCharacterSelection.player2Name == "Scottish")
+            {
+                player2 = GameObject.FindGameObjectWithTag("Player2Scottish").transform;
+            }
+            else if (NextButtonCharacterSelection.player2Name == "English")
+            {
+                player2 = GameObject.FindGameObjectWithTag("Player2English").transform;
+            }
+            else if (NextButtonCharacterSelection.player2Name == "Irish")
+            {
+                player2 = GameObject.FindGameObjectWithTag("Player2Irish").transform;
+            }
         }
     }
 
@@ -93,7 +126,8 @@ public class Player1Data : MonoBehaviour
         {
             curAction = "attack";
             showAction.text = "Attack";
-            GameObject punchHit = (GameObject)Instantiate(punch,new Vector3(415,200,0), Quaternion.identity);
+            Vector3 destination = new Vector3(player2.position.x, player2.position.y, 0);
+            GameObject punchHit = (GameObject)Instantiate(punch, destination, Quaternion.identity);
             Destroy(punchHit, 1);
 
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
@@ -121,8 +155,8 @@ public class Player1Data : MonoBehaviour
         {
             curAction = "bluff";
             showAction.text = "Bluff";
-
-            GameObject bluffHit = (GameObject)Instantiate(bluff, new Vector3(415, 200, 0), Quaternion.identity);
+            Vector3 destination = new Vector3(player2.position.x, player2.position.y, 0);
+            GameObject bluffHit = (GameObject)Instantiate(bluff, destination, Quaternion.identity);
             Destroy(bluffHit,1);
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
