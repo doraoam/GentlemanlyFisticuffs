@@ -11,6 +11,8 @@ public class CharacterTrigger : MonoBehaviour
     Player1Data player1Data;
     Player2Data player2Data;
 
+    bool alreadyHit;
+
     void Awake()
     {
         player1 = GameObject.FindGameObjectWithTag("Player1Data");
@@ -22,7 +24,7 @@ public class CharacterTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (GameOver.isOver != true)
+        if (GameOver.isOver != true && alreadyHit != true)
         {
             if (col.CompareTag("Attack"))
             {
@@ -34,6 +36,8 @@ public class CharacterTrigger : MonoBehaviour
                 {
                     player2Data.TakeDamage(5, "attack");
                 }
+
+                //alreadyHit = true;
             }
             else if (col.CompareTag("Bluff"))
             {
@@ -45,7 +49,17 @@ public class CharacterTrigger : MonoBehaviour
                 {
                     player2Data.TakeDamage(5, "bluff");
                 }
+
+                //alreadyHit = true;
             }
         }
     }
+
+    //void OnTriggerStay2D(Collider2D col)
+    //{
+    //    if (col.CompareTag("Attack") || col.CompareTag("Bluff"))
+    //    {
+    //        alreadyHit = false;
+    //    }
+    //}
 }

@@ -76,13 +76,13 @@ public class SelectedCharacter : MonoBehaviour
         {
             if (playerNumber == 1)
             {
-                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+                Player1MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle2");
 
                 playerSprite = Player1MoveableSprite[0];
 
                 playerImage = GameObject.Find("Player1/Character/English").GetComponent<Image>();
                 playerImage.enabled = true;
-
+                
                 playerAnimator = GameObject.Find("Player1/Character/English").GetComponent<Animator>();
                 playerAnimator.enabled = true;
 
@@ -93,7 +93,7 @@ public class SelectedCharacter : MonoBehaviour
             }
             else
             {
-                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle");
+                Player2MoveableSprite = Resources.LoadAll<Sprite>("Character/englishidle2");
 
                 enermySprite = Player2MoveableSprite[0];
 

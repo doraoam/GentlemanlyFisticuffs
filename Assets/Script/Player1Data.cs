@@ -91,7 +91,7 @@ public class Player1Data : MonoBehaviour
     {
         if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
         {
-            if (!player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation") && !player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation"))
+            if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1Animation"))
             {
                 controller();
             }
@@ -99,20 +99,20 @@ public class Player1Data : MonoBehaviour
             {
                 if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation"))
                 {
-                    player1Animator.SetBool("Punch", false);
-                    player1Animator.SetBool("Block", false);
-                    player1Animator.SetBool("Bluff", false);
                     player1Animator.SetBool("Bluffed", false);
                 }
 
                 if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation"))
                 {
-                    player1Animator.SetBool("Punch", false);
-                    player1Animator.SetBool("Block", false);
-                    player1Animator.SetBool("Bluff", false);
                     player1Animator.SetBool("Punched", false);
                 }
+
+                player1Animator.SetBool("Punch", false);
+                player1Animator.SetBool("Block", false);
+                player1Animator.SetBool("Bluff", false);
             }
+
+            //!player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1PunchDamageAnimation") && !player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BluffDamageAnimation")
         }
         else
         {
@@ -229,11 +229,11 @@ public class Player1Data : MonoBehaviour
         }
         else
         {
-            if (action == "attack" && curAction != "defend")
+            if (action == "attack" && curAction != "defend" && (curAction != "Punched" || curAction != "Bluffed") || action == "bluff" && curAction == "bluff")
             {
                 curAction = "Punched";
             }
-            else if (action == "bluff" && curAction != "attack")
+            else if (action == "bluff" && curAction != "attack" && (curAction != "Punched" || curAction != "Bluffed" || curAction == "bluff"))
             {
                 curAction = "Bluffed";
             }
@@ -251,13 +251,13 @@ public class Player1Data : MonoBehaviour
 
     public void getDamage(string action)
     {
-        if (action == "attack" && curAction != "defend")
+        if (action == "attack" && curAction != "defend" && (curAction != "Punched" || curAction != "Bluffed") || action == "bluff" && curAction == "bluff")
         {
             player1Animator.SetBool("Punched", true);
 
             curAction = "Punched";
         }
-        else if (action == "bluff" && curAction != "attack")
+        else if (action == "bluff" && curAction != "attack" && (curAction != "Punched" || curAction != "Bluffed" || curAction == "bluff"))
         {
             player1Animator.SetBool("Bluffed", true);
 
