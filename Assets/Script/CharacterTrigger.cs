@@ -30,11 +30,11 @@ public class CharacterTrigger : MonoBehaviour
             {
                 if (playerNumber == 1)
                 {
-                    player1Data.TakeDamage(5, "attack");
+                    player1Data.TakeDamage(10, "attack");
                 }
                 else
                 {
-                    player2Data.TakeDamage(5, "attack");
+                    player2Data.TakeDamage(10, "attack");
                 }
 
                 //alreadyHit = true;
@@ -43,11 +43,11 @@ public class CharacterTrigger : MonoBehaviour
             {
                 if (playerNumber == 1)
                 {
-                    player1Data.TakeDamage(5, "bluff");
+                    player1Data.TakeDamage(10, "bluff");
                 }
                 else
                 {
-                    player2Data.TakeDamage(5, "bluff");
+                    player2Data.TakeDamage(10, "bluff");
                 }
 
                 //alreadyHit = true;

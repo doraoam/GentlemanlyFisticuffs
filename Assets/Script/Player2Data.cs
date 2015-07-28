@@ -21,6 +21,11 @@ public class Player2Data : MonoBehaviour
     public GameObject punch;
     public GameObject bluff;
 
+    bool isHurt;
+    bool isDefend;
+
+    int lossPoint;
+
     Transform player1;
 
     // Use this for initialization
@@ -92,7 +97,7 @@ public class Player2Data : MonoBehaviour
         if (TwoPlayerNextButtonCharacterSelection.isTwoPlayer != true)
         {
             if(NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation){
-                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2Animation"))
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2Animation") && isDefend == false)
                 {
                     AutoController();
                 }
@@ -101,11 +106,30 @@ public class Player2Data : MonoBehaviour
                     if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
                     {
                         player2Animator.SetBool("Bluffed", false);
+
+                        if (isHurt)
+                        {
+                            curHealth -= lossPoint;
+                            healthSlider.value = curHealth;
+                            isHurt = false;
+                        }
                     }
 
                     if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation"))
                     {
                         player2Animator.SetBool("Punched", false);
+
+                        if (isHurt)
+                        {
+                            curHealth -= lossPoint;
+                            healthSlider.value = curHealth;
+                            isHurt = false;
+                        }
+                    }
+
+                    if (!player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BlockAnimation"))
+                    {
+                        isDefend = false;
                     }
 
                     player2Animator.SetBool("Punch", false);
@@ -120,7 +144,7 @@ public class Player2Data : MonoBehaviour
         {
             if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
             {
-                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2Animation"))
+                if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2Animation") && isDefend == false)
                 {
                     controller();
                 }
@@ -129,11 +153,30 @@ public class Player2Data : MonoBehaviour
                     if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BluffDamageAnimation"))
                     {
                         player2Animator.SetBool("Bluffed", false);
+
+                        if (isHurt)
+                        {
+                            curHealth -= lossPoint;
+                            healthSlider.value = curHealth;
+                            isHurt = false;
+                        }
                     }
 
                     if (player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2PunchDamageAnimation"))
                     {
                         player2Animator.SetBool("Punched", false);
+
+                        if (isHurt)
+                        {
+                            curHealth -= lossPoint;
+                            healthSlider.value = curHealth;
+                            isHurt = false;
+                        }
+                    }
+
+                    if (!player2Animator.GetCurrentAnimatorStateInfo(0).IsName("Player2BlockAnimation"))
+                    {
+                        isDefend = false;
                     }
 
                     player2Animator.SetBool("Punch", false);
@@ -173,7 +216,7 @@ public class Player2Data : MonoBehaviour
             {
                 curAction = "defend";
                 showAction.text = "Defend";
-
+                isDefend = true;
                 if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
                 {
                     player2Animator.SetBool("Punch", false);
@@ -264,7 +307,7 @@ public class Player2Data : MonoBehaviour
         {
             curAction = "defend";
             showAction.text = "Defend";
-
+            isDefend = true;
             if (NextButtonCharacterSelection.player2UseAnimation || TwoPlayerNextButtonCharacterSelection.player2UseAnimation)
             {
                 player2Animator.SetBool("Punch", false);
@@ -367,9 +410,9 @@ public class Player2Data : MonoBehaviour
             }
         }
 
-        curHealth -= amount;
+        lossPoint = amount;
 
-        healthSlider.value = curHealth;
+        isHurt = true;
     }
 
     public void getDamage(string action)
