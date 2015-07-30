@@ -19,6 +19,7 @@ TagManager:
   - count
   - Player1Irish
   - Player2Irish
+  - Block
   layers:
   - Default
   - TransparentFX

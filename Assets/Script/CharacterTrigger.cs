@@ -11,7 +11,10 @@ public class CharacterTrigger : MonoBehaviour
     Player1Data player1Data;
     Player2Data player2Data;
 
-    bool alreadyHit;
+    bool defending;
+    bool triggered;
+
+    Collider2D other;
 
     void Awake()
     {
@@ -24,42 +27,75 @@ public class CharacterTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (GameOver.isOver != true && alreadyHit != true)
+        triggered = true;
+        this.other = col;
+
+        if (GameOver.isOver != true)
         {
-            if (col.CompareTag("Attack"))
+            if (col.CompareTag("Block"))
             {
-                if (playerNumber == 1)
-                {
-                    player1Data.TakeDamage(10, "attack");
-                }
-                else
-                {
-                    player2Data.TakeDamage(10, "attack");
-                }
-
-                //alreadyHit = true;
+                defending = true;
             }
-            else if (col.CompareTag("Bluff"))
+            else
             {
-                if (playerNumber == 1)
+                if (!defending)
                 {
-                    player1Data.TakeDamage(10, "bluff");
+                    if (col.CompareTag("Attack"))
+                    {
+                        if (playerNumber == 1)
+                        {
+                            player1Data.TakeDamage(10, "attack");
+                        }
+                        else
+                        {
+                            player2Data.TakeDamage(10, "attack");
+                        }
+                    }
+                    if (col.CompareTag("Bluff"))
+                    {
+                        if (playerNumber == 1)
+                        {
+                            player1Data.TakeDamage(10, "bluff");
+                        }
+                        else
+                        {
+                            player2Data.TakeDamage(10, "bluff");
+                        }
+                    }
                 }
                 else
                 {
-                    player2Data.TakeDamage(10, "bluff");
-                }
+                    if (col.CompareTag("Bluff"))
+                    {
+                        if (playerNumber == 1)
+                        {
+                            player1Data.TakeDamage(10, "bluff");
+                        }
+                        else
+                        {
+                            player2Data.TakeDamage(10, "bluff");
+                        }
+                    }
 
-                //alreadyHit = true;
+                    defending = false;
+                }
             }
         }
     }
 
-    //void OnTriggerStay2D(Collider2D col)
-    //{
-    //    if (col.CompareTag("Attack") || col.CompareTag("Bluff"))
-    //    {
-    //        alreadyHit = false;
-    //    }
-    //}
+    void Update()
+    {
+        if (triggered && !other)
+        {
+            defending = false;
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.CompareTag("Block"))
+        {
+            defending = true;
+        }
+    }
 }

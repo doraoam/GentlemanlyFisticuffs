@@ -19,10 +19,10 @@ public class Player1Data : MonoBehaviour
     public static bool isDead;
 
     public GameObject punch;
+    public GameObject defend;
     public GameObject bluff;
 
     bool isHurt;
-    bool isDefend;
 
     int lossPoint;
 
@@ -96,7 +96,7 @@ public class Player1Data : MonoBehaviour
     {
         if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
         {
-            if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1Animation") && isDefend == false)
+            if (player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1Animation"))
             {
                 controller();
             }
@@ -124,11 +124,6 @@ public class Player1Data : MonoBehaviour
                         healthSlider.value = curHealth;
                         isHurt = false;
                     }
-                }
-
-                if (!player1Animator.GetCurrentAnimatorStateInfo(0).IsName("Player1BlockAnimation"))
-                {
-                    isDefend = false;
                 }
 
                 player1Animator.SetBool("Punch", false);
@@ -166,7 +161,8 @@ public class Player1Data : MonoBehaviour
         {
             curAction = "defend";
             showAction.text = "Defend";
-            isDefend = true;
+            GameObject blockDefend = (GameObject)Instantiate(defend, player1Animator.transform.position, Quaternion.identity);
+            Destroy(blockDefend, 1);
             if (NextButtonCharacterSelection.player1UseAnimation || TwoPlayerNextButtonCharacterSelection.player1UseAnimation)
             {
                 player1Animator.SetBool("Punch", false);
